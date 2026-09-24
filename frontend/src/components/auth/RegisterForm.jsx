@@ -91,6 +91,7 @@ const RegisterForm = () => {
             onChange={handleChange}
             placeholder="Enter your email"
             disabled={isSubmitting}
+            autoComplete="username"
           />
         </div>
 
