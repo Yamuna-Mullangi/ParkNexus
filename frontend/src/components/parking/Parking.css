@@ -1,0 +1,252 @@
+.parking-map-container {
+  display: flex;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.parking-sidebar {
+  flex: 0 0 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.parking-main {
+  flex: 1;
+  background: var(--bg-card, #ffffff);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  min-height: 500px;
+}
+
+/* Parking Stats */
+.parking-stats-card {
+  background: var(--bg-card, #ffffff);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.parking-stats-card h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--text-primary, #111827);
+}
+
+.stats-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.stat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stat-label {
+  color: var(--text-secondary, #4b5563);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.stat-label.dot-available::before { content: '🟢'; }
+.stat-label.dot-occupied::before { content: '🔴'; }
+.stat-label.dot-assigned::before { content: '🔵'; }
+.stat-label.dot-maintenance::before { content: '⚪'; }
+
+.stat-value {
+  font-weight: 600;
+  color: var(--text-primary, #111827);
+}
+
+/* Parking Filters */
+.parking-filters {
+  background: var(--bg-card, #ffffff);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.filter-group label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary, #4b5563);
+}
+
+.filter-group select, .filter-group input {
+  padding: 0.5rem;
+  border: 1px solid var(--border-color, #e5e7eb);
+  border-radius: 4px;
+  background: var(--bg-primary, #f9fafb);
+  color: var(--text-primary, #111827);
+}
+
+/* Parking Legend */
+.parking-legend {
+  background: var(--bg-card, #ffffff);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--text-secondary, #4b5563);
+}
+
+/* Parking Spots */
+.parking-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.block-title {
+  text-align: center;
+  color: var(--text-secondary, #4b5563);
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.parking-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.parking-spot-card {
+  width: 80px;
+  height: 120px;
+  border: 2px dashed var(--border-color, #cbd5e1);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: var(--bg-primary, #f8fafc);
+}
+
+.parking-spot-card:hover {
+  background: var(--bg-hover, #f1f5f9);
+}
+
+.parking-spot-card.selected {
+  border-style: solid;
+  border-width: 3px;
+  transform: scale(1.05);
+}
+
+.spot-number {
+  font-weight: bold;
+  color: var(--text-primary, #1e293b);
+  font-size: 1rem;
+}
+
+.spot-status-icon {
+  font-size: 1.5rem;
+}
+
+.driveway-marker {
+  text-align: center;
+  color: var(--text-secondary, #94a3b8);
+  font-weight: 500;
+  letter-spacing: 4px;
+  margin-top: 1.5rem;
+}
+
+/* Details Overlay */
+.parking-details-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.parking-details-modal {
+  background: var(--bg-card, #ffffff);
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+  padding: 1.5rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.parking-details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color, #e5e7eb);
+  padding-bottom: 0.5rem;
+}
+
+.parking-details-header h3 {
+  margin: 0;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-secondary, #6b7280);
+}
+
+.parking-details-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.detail-label {
+  color: var(--text-secondary, #6b7280);
+  font-weight: 500;
+}
+
+.detail-value {
+  font-weight: 600;
+  color: var(--text-primary, #111827);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .parking-map-container {
+    flex-direction: column;
+  }
+  .parking-sidebar {
+    flex: auto;
+  }
+}

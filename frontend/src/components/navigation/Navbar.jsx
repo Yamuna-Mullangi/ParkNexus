@@ -5,7 +5,7 @@ import useAuth from '../../hooks/useAuth';
 import './Navbar.css';
 
 const Navbar = () => {
-  const { isAuthenticated, logout } = useAuth();
+  const { user, isAuthenticated, logout } = useAuth();
   const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -48,9 +48,23 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <div className="navbar-menu hide-mobile">
-          <a href="#features" className="nav-link">Features</a>
-          <a href="#how-it-works" className="nav-link">How It Works</a>
-          <a href="#about" className="nav-link">About</a>
+          {!isAuthenticated ? (
+            <>
+              <a href="/#features" className="nav-link">Features</a>
+              <a href="/#how-it-works" className="nav-link">How It Works</a>
+              <a href="/#about" className="nav-link">About</a>
+            </>
+          ) : (
+            <>
+              <Link to="/parking-map" className="nav-link">Parking Map</Link>
+              {user?.role === 'resident' && (
+                <Link to="/my-parking" className="nav-link">My Parking</Link>
+              )}
+              {user?.role === 'admin' && (
+                <Link to="/admin/parking" className="nav-link">Manage Parking</Link>
+              )}
+            </>
+          )}
         </div>
 
         {/* Actions */}
@@ -89,9 +103,23 @@ const Navbar = () => {
       {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
         <div className="mobile-menu">
-          <a href="#features" className="mobile-link" onClick={() => setIsMobileMenuOpen(false)}>Features</a>
-          <a href="#how-it-works" className="mobile-link" onClick={() => setIsMobileMenuOpen(false)}>How It Works</a>
-          <a href="#about" className="mobile-link" onClick={() => setIsMobileMenuOpen(false)}>About</a>
+          {!isAuthenticated ? (
+            <>
+              <a href="/#features" className="mobile-link" onClick={() => setIsMobileMenuOpen(false)}>Features</a>
+              <a href="/#how-it-works" className="mobile-link" onClick={() => setIsMobileMenuOpen(false)}>How It Works</a>
+              <a href="/#about" className="mobile-link" onClick={() => setIsMobileMenuOpen(false)}>About</a>
+            </>
+          ) : (
+            <>
+              <Link to="/parking-map" className="mobile-link" onClick={() => setIsMobileMenuOpen(false)}>Parking Map</Link>
+              {user?.role === 'resident' && (
+                <Link to="/my-parking" className="mobile-link" onClick={() => setIsMobileMenuOpen(false)}>My Parking</Link>
+              )}
+              {user?.role === 'admin' && (
+                <Link to="/admin/parking" className="mobile-link" onClick={() => setIsMobileMenuOpen(false)}>Manage Parking</Link>
+              )}
+            </>
+          )}
           <div className="mobile-actions">
             {isAuthenticated ? (
               <>

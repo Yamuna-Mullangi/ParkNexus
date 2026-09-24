@@ -4,6 +4,9 @@ import LandingPage from '../pages/public/LandingPage';
 import LoginPage from '../pages/public/LoginPage';
 import RegisterPage from '../pages/public/RegisterPage';
 import ProfilePage from '../pages/profile/ProfilePage';
+import ParkingMapPage from '../pages/resident/ParkingMapPage';
+import MyParkingPage from '../pages/resident/MyParkingPage';
+import ParkingManagementPage from '../pages/admin/ParkingManagementPage';
 import ProtectedRoute from './ProtectedRoute';
 
 const AppRoutes = () => {
@@ -17,7 +20,13 @@ const AppRoutes = () => {
       {/* Protected Routes */}
       <Route element={<ProtectedRoute />}>
         <Route path="/profile" element={<ProfilePage />} />
-        {/* Future role-based routes go here */}
+        
+        {/* Parking Routes */}
+        <Route path="/parking-map" element={<ParkingMapPage />} />
+        <Route path="/my-parking" element={<MyParkingPage />} />
+        
+        {/* Admin Routes */}
+        <Route path="/admin/parking" element={<ParkingManagementPage />} />
       </Route>
     </Routes>
   );
