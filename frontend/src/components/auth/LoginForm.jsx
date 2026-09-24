@@ -68,6 +68,7 @@ const LoginForm = () => {
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Enter your password"
               disabled={isSubmitting}
+              autoComplete="current-password"
             />
             <button
               type="button"

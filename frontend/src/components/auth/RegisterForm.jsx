@@ -118,6 +118,7 @@ const RegisterForm = () => {
               onChange={handleChange}
               placeholder="Create a password"
               disabled={isSubmitting}
+              autoComplete="new-password"
             />
             <button
               type="button"
@@ -141,6 +142,7 @@ const RegisterForm = () => {
               onChange={handleChange}
               placeholder="Confirm your password"
               disabled={isSubmitting}
+              autoComplete="new-password"
             />
           </div>
         </div>
