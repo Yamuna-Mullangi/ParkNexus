@@ -1,0 +1,28 @@
+/* Responsive Breakpoints */
+
+/* Tablet and smaller */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--spacing-md);
+  }
+  
+  .section {
+    padding: var(--spacing-xl) 0;
+  }
+  
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+/* Mobile only */
+@media (max-width: 480px) {
+  :root {
+    --spacing-3xl: 3rem;
+  }
+  
+  .btn-large {
+    width: 100%;
+    padding: var(--spacing-md) var(--spacing-md);
+  }
+}
