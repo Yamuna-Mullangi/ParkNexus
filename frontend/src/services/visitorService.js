@@ -4,7 +4,7 @@ const visitorService = {
   getMyVisitors: async (params = {}) => {
     const response = await api.get('/visitors/my', { params });
     // In our updated backend it returns { success, data, pagination }
-    return response.data;
+    return response.data.data !== undefined ? response.data.data : response.data;
   },
   
   getUpcomingVisitors: async () => {

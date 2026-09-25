@@ -24,7 +24,7 @@ const gateService = {
   getGateHistory: async (params = {}) => {
     const query = new URLSearchParams(params).toString();
     const response = await api.get(`/gate/history${query ? `?${query}` : ''}`);
-    return response.data;
+    return response.data.data !== undefined ? response.data.data : response.data;
   },
 
   getGateEntry: async (id) => {

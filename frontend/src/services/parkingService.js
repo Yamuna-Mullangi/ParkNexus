@@ -9,42 +9,42 @@ const parkingService = {
       }
     });
     const response = await api.get(`/parking?${params.toString()}`);
-    return response.data;
+    return response.data.data !== undefined ? response.data.data : response.data;
   },
 
   getParkingSpotById: async (id) => {
     const response = await api.get(`/parking/${id}`);
-    return response.data;
+    return response.data.data !== undefined ? response.data.data : response.data;
   },
 
   getMyParking: async () => {
     const response = await api.get('/parking/my');
-    return response.data;
+    return response.data.data !== undefined ? response.data.data : response.data;
   },
 
   createParkingSpot: async (data) => {
     const response = await api.post('/parking', data);
-    return response.data;
+    return response.data.data !== undefined ? response.data.data : response.data;
   },
 
   updateParkingSpot: async (id, data) => {
     const response = await api.put(`/parking/${id}`, data);
-    return response.data;
+    return response.data.data !== undefined ? response.data.data : response.data;
   },
 
   assignParkingSpot: async (id, userId) => {
     const response = await api.put(`/parking/${id}/assign`, { userId });
-    return response.data;
+    return response.data.data !== undefined ? response.data.data : response.data;
   },
 
   deactivateParkingSpot: async (id) => {
     const response = await api.delete(`/parking/${id}`);
-    return response.data;
+    return response.data.data !== undefined ? response.data.data : response.data;
   },
 
   getParkingRecommendations: async (data) => {
     const response = await api.post('/parking/recommendations', data);
-    return response.data;
+    return response.data.data !== undefined ? response.data.data : response.data;
   }
 };
 

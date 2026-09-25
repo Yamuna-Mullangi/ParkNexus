@@ -8,7 +8,7 @@ const activityLogService = {
     );
     const queryString = new URLSearchParams(cleanParams).toString();
     const response = await api.get(`/activity-logs?${queryString}`);
-    return response.data;
+    return response.data.data !== undefined ? response.data.data : response.data;
   }
 };
 

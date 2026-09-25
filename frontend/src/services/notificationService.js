@@ -18,7 +18,7 @@ const notificationService = {
 
   markAllAsRead: async () => {
     const response = await api.put('/notifications/read-all');
-    return response.data;
+    return response.data.data !== undefined ? response.data.data : response.data;
   }
 };
 

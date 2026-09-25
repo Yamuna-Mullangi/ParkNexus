@@ -6,7 +6,7 @@ const authService = {
     if (response.data.token) {
       localStorage.setItem('parknexus-token', response.data.token);
     }
-    return response.data;
+    return response.data.data !== undefined ? response.data.data : response.data;
   },
 
   login: async (credentials) => {
@@ -14,7 +14,7 @@ const authService = {
     if (response.data.token) {
       localStorage.setItem('parknexus-token', response.data.token);
     }
-    return response.data;
+    return response.data.data !== undefined ? response.data.data : response.data;
   },
 
   logout: async () => {
@@ -33,7 +33,7 @@ const authService = {
     
     try {
       const response = await api.get('/auth/me');
-      return response.data;
+      return response.data.data !== undefined ? response.data.data : response.data;
     } catch (error) {
       localStorage.removeItem('parknexus-token');
       throw error;
