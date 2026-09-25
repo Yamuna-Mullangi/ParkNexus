@@ -43,8 +43,9 @@ const NotificationBell = () => {
   const fetchNotifications = async () => {
     try {
       const data = await notificationService.getNotifications();
-      setNotifications(data);
-      setUnreadCount(data.filter(n => !n.isRead).length);
+      const safeData = Array.isArray(data) ? data : (data?.data || []);
+      setNotifications(safeData);
+      setUnreadCount(safeData.filter(n => !n.isRead).length);
     } catch (error) {
       console.error('Failed to fetch notifications', error);
     }
