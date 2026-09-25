@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   Car, Shield, Clock, Users, BarChart, Settings, 
-  MapPin, CheckCircle, ArrowRight, Zap, smartphone, Map,
+  MapPin, CheckCircle, ArrowRight, Zap, Map,
   Check, Smartphone, Video
 } from 'lucide-react';
 import '../../components/landing/Landing.css'; // Assume we will create/update this
