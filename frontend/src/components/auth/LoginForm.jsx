@@ -25,8 +25,14 @@ const LoginForm = () => {
 
     setIsSubmitting(true);
     try {
-      await login({ email, password });
-      navigate('/profile');
+      const loggedInUser = await login({ email, password });
+      if (loggedInUser?.role === 'admin') {
+        navigate('/admin/dashboard');
+      } else if (loggedInUser?.role === 'security') {
+        navigate('/security/dashboard');
+      } else {
+        navigate('/resident/dashboard');
+      }
     } catch (err) {
       setError(err.response?.data?.message || 'Invalid email or password.');
     } finally {

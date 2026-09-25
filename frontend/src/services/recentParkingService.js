@@ -1,0 +1,22 @@
+import api from './api';
+
+const recordView = async (parkingSpotId) => {
+  const res = await api.post(`/api/parking/recent/${parkingSpotId}`);
+  return res.data;
+};
+
+const getRecentViews = async (limit = 5) => {
+  const res = await api.get(`/api/parking/recent?limit=${limit}`);
+  return res.data;
+};
+
+const clearRecentViews = async () => {
+  const res = await api.delete('/api/parking/recent');
+  return res.data;
+};
+
+export default {
+  recordView,
+  getRecentViews,
+  clearRecentViews
+};

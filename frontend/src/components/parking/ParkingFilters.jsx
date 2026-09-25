@@ -1,12 +1,14 @@
 import React from 'react';
+import SearchBar from '../common/SearchBar';
+import FilterBar from '../common/FilterBar';
 
 const ParkingFilters = ({ filters, setFilters }) => {
   const handleChange = (e) => {
-    setFilters({ ...filters, [e.target.name]: e.target.value });
+    setFilters(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   return (
-    <div className="parking-filters">
+    <FilterBar>
       <div className="filter-group">
         <label>Block</label>
         <select name="block" value={filters.block} onChange={handleChange}>
@@ -49,17 +51,12 @@ const ParkingFilters = ({ filters, setFilters }) => {
         </select>
       </div>
 
-      <div className="filter-group search-group">
-        <label>Search</label>
-        <input 
-          type="text" 
-          name="search"
-          placeholder="Spot number..." 
-          value={filters.search || ''} 
-          onChange={handleChange}
-        />
-      </div>
-    </div>
+      <SearchBar 
+        value={filters.search} 
+        onChange={handleChange} 
+        placeholder="Search spot number..."
+      />
+    </FilterBar>
   );
 };
 

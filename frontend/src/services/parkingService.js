@@ -40,6 +40,11 @@ const parkingService = {
   deactivateParkingSpot: async (id) => {
     const response = await api.delete(`/parking/${id}`);
     return response.data;
+  },
+
+  getParkingRecommendations: async (data) => {
+    const response = await api.post('/parking/recommendations', data);
+    return response.data;
   }
 };
 

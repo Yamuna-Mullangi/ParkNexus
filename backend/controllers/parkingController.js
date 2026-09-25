@@ -1,4 +1,6 @@
 const parkingService = require('../services/parkingService');
+const { emitToAll } = require('../services/notificationService');
+const { logActivity } = require('../services/activityLogService');
 
 const getParkingSpots = async (req, res, next) => {
   try {
@@ -50,6 +52,17 @@ const getMyParking = async (req, res, next) => {
 const createParkingSpot = async (req, res, next) => {
   try {
     const spot = await parkingService.createParkingSpot(req.body);
+    
+    await logActivity({
+      actor: req.user._id,
+      action: 'PARKING_CREATED',
+      entityType: 'ParkingSpot',
+      entityId: spot._id,
+      description: `Created parking spot ${spot.spotNumber}`,
+      ipAddress: req.ip
+    });
+    
+    emitToAll('parking:updated', spot);
     res.status(201).json(spot);
   } catch (error) {
     res.status(400);
@@ -60,6 +73,17 @@ const createParkingSpot = async (req, res, next) => {
 const updateParkingSpot = async (req, res, next) => {
   try {
     const spot = await parkingService.updateParkingSpot(req.params.id, req.body);
+    
+    await logActivity({
+      actor: req.user._id,
+      action: 'PARKING_UPDATED',
+      entityType: 'ParkingSpot',
+      entityId: spot._id,
+      description: `Updated parking spot ${spot.spotNumber}`,
+      ipAddress: req.ip
+    });
+    
+    emitToAll('parking:updated', spot);
     res.json(spot);
   } catch (error) {
     res.status(400);
@@ -71,6 +95,17 @@ const assignParkingSpot = async (req, res, next) => {
   try {
     const { userId } = req.body;
     const spot = await parkingService.assignParkingToResident(req.params.id, userId);
+    
+    await logActivity({
+      actor: req.user._id,
+      action: 'PARKING_UPDATED',
+      entityType: 'ParkingSpot',
+      entityId: spot._id,
+      description: `Assigned parking spot ${spot.spotNumber} to user`,
+      ipAddress: req.ip
+    });
+    
+    emitToAll('parking:updated', spot);
     res.json(spot);
   } catch (error) {
     res.status(400);
@@ -81,6 +116,17 @@ const assignParkingSpot = async (req, res, next) => {
 const deactivateParkingSpot = async (req, res, next) => {
   try {
     const spot = await parkingService.deactivateParkingSpot(req.params.id);
+    
+    await logActivity({
+      actor: req.user._id,
+      action: 'PARKING_DEACTIVATED',
+      entityType: 'ParkingSpot',
+      entityId: spot._id,
+      description: `Deactivated parking spot ${spot.spotNumber}`,
+      ipAddress: req.ip
+    });
+    
+    emitToAll('parking:updated', spot);
     res.json(spot);
   } catch (error) {
     res.status(400);

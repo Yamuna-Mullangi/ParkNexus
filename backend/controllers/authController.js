@@ -10,14 +10,18 @@ const register = async (req, res) => {
 
     // Validation
     if (!name || !email || !password) {
-      return res.status(400).json({ message: 'Please provide name, email, and password' });
+      return res.status(400).json({ success: false, message: 'Please provide name, email, and password' });
+    }
+    
+    if (password.length < 8) {
+      return res.status(400).json({ success: false, message: 'Password must be at least 8 characters long' });
     }
 
     // Check if user exists
     const userExists = await User.findOne({ email });
 
     if (userExists) {
-      return res.status(409).json({ message: 'An account with this email already exists' });
+      return res.status(409).json({ success: false, message: 'An account with this email already exists' });
     }
 
     // Security check: Don't allow public registration of admin roles freely
@@ -34,6 +38,7 @@ const register = async (req, res) => {
 
     if (user) {
       res.status(201).json({
+        success: true,
         _id: user._id,
         name: user.name,
         email: user.email,
@@ -41,10 +46,10 @@ const register = async (req, res) => {
         token: generateToken(user._id, user.role),
       });
     } else {
-      res.status(400).json({ message: 'Invalid user data' });
+      res.status(400).json({ success: false, message: 'Invalid user data' });
     }
   } catch (error) {
-    res.status(500).json({ message: 'Server error', error: error.message });
+    res.status(500).json({ success: false, message: 'Server error', error: error.message });
   }
 };
 
@@ -56,24 +61,29 @@ const login = async (req, res) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
-      return res.status(400).json({ message: 'Please provide email and password' });
+      return res.status(400).json({ success: false, message: 'Please provide email and password' });
     }
 
     // Check for user email
     const user = await User.findOne({ email }).select('+password');
 
     if (!user) {
-      return res.status(401).json({ message: 'Invalid email or password' });
+      return res.status(401).json({ success: false, message: 'Invalid email or password' });
+    }
+
+    if (!user.isActive) {
+      return res.status(403).json({ success: false, message: 'Your account has been deactivated' });
     }
 
     // Check if password matches
     const isMatch = await user.matchPassword(password);
 
     if (!isMatch) {
-      return res.status(401).json({ message: 'Invalid email or password' });
+      return res.status(401).json({ success: false, message: 'Invalid email or password' });
     }
 
     res.status(200).json({
+      success: true,
       _id: user._id,
       name: user.name,
       email: user.email,
@@ -81,7 +91,7 @@ const login = async (req, res) => {
       token: generateToken(user._id, user.role),
     });
   } catch (error) {
-    res.status(500).json({ message: 'Server error', error: error.message });
+    res.status(500).json({ success: false, message: 'Server error', error: error.message });
   }
 };
 

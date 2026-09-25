@@ -46,6 +46,14 @@
   --color-border: #e2e8f0;
   
   --shadow-nav: 0 1px 3px rgba(0,0,0,0.05);
+
+  /* Aliases for inline styles used throughout the app */
+  --bg-secondary: #f1f5f9;
+  --bg-card: #ffffff;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-light: #94a3b8;
+  --border-color: #e2e8f0;
 }
 
 /* Dark Theme */
@@ -58,4 +66,12 @@
   
   --shadow-nav: 0 1px 3px rgba(0,0,0,0.3);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+
+  /* Aliases for inline styles used throughout the app */
+  --bg-secondary: #0f172a;
+  --bg-card: #1e293b;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-light: #64748b;
+  --border-color: #334155;
 }

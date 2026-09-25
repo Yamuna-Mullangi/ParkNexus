@@ -1,11 +1,33 @@
 const ParkingSpot = require('../models/ParkingSpot');
+const ParkingShare = require('../models/ParkingShare');
 
 const getAllParkingSpots = async (query = {}) => {
-  return await ParkingSpot.find(query).populate('assignedTo', 'name email');
+  const spots = await ParkingSpot.find(query).populate('assignedTo', 'name email').lean();
+  const now = new Date();
+  const activeShares = await ParkingShare.find({
+    status: 'active',
+    endTime: { $gt: now },
+    startTime: { $lte: now }
+  }).lean();
+  
+  const sharedSpotIds = new Set(activeShares.map(s => s.parkingSpot.toString()));
+  return spots.map(spot => ({
+    ...spot,
+    isShared: sharedSpotIds.has(spot._id.toString())
+  }));
 };
 
 const getParkingSpotById = async (id) => {
-  return await ParkingSpot.findById(id).populate('assignedTo', 'name email');
+  const spot = await ParkingSpot.findById(id).populate('assignedTo', 'name email').lean();
+  if (!spot) return null;
+  const now = new Date();
+  const activeShare = await ParkingShare.findOne({
+    parkingSpot: id,
+    status: 'active',
+    endTime: { $gt: now },
+    startTime: { $lte: now }
+  });
+  return { ...spot, isShared: !!activeShare };
 };
 
 const getResidentAssignedSpot = async (userId) => {
@@ -38,6 +60,12 @@ const updateParkingSpot = async (id, data) => {
 };
 
 const assignParkingToResident = async (spotId, userId) => {
+  const { getSettings } = require('./systemSettingService');
+  const settings = await getSettings();
+  if (userId && !settings.parkingSettings.allowResidentAssignment) {
+    throw new Error('Resident parking assignments are currently disabled by administration.');
+  }
+
   // Check if user already has an assigned spot
   if (userId) {
     const currentAssigned = await ParkingSpot.findOne({ assignedTo: userId, _id: { $ne: spotId } });

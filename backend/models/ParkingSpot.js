@@ -47,7 +47,6 @@ const parkingSpotSchema = new mongoose.Schema(
 );
 
 // Indexes for faster querying
-parkingSpotSchema.index({ spotNumber: 1 });
 parkingSpotSchema.index({ status: 1 });
 parkingSpotSchema.index({ block: 1, floor: 1 });
 

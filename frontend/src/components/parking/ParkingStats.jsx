@@ -1,12 +1,20 @@
 import React from 'react';
 
-const ParkingStats = ({ spots }) => {
-  const stats = {
+const ParkingStats = ({ spots, capacity }) => {
+  const stats = capacity ? {
+    total: capacity.totalCapacity,
+    available: capacity.available,
+    occupied: capacity.occupied,
+    assigned: capacity.assigned,
+    maintenance: capacity.maintenance,
+    reserved: capacity.reserved
+  } : {
     total: spots.length,
     available: spots.filter(s => s.status === 'available').length,
     occupied: spots.filter(s => s.status === 'occupied').length,
     assigned: spots.filter(s => s.status === 'assigned').length,
     maintenance: spots.filter(s => s.status === 'maintenance').length,
+    reserved: spots.filter(s => s.status === 'reserved').length,
   };
 
   return (
@@ -28,6 +36,10 @@ const ParkingStats = ({ spots }) => {
         <div className="stat-item">
           <span className="stat-label dot-assigned">Assigned</span>
           <span className="stat-value">{stats.assigned}</span>
+        </div>
+        <div className="stat-item">
+          <span className="stat-label dot-reserved">Reserved</span>
+          <span className="stat-value">{stats.reserved}</span>
         </div>
         <div className="stat-item">
           <span className="stat-label dot-maintenance">Maintenance</span>

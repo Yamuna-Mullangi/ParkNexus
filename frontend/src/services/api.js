@@ -18,4 +18,22 @@ api.interceptors.request.use(
   }
 );
 
+// Add a response interceptor to handle 401 errors globally
+api.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  (error) => {
+    if (error.response && error.response.status === 401) {
+      // Clear token and redirect to login
+      localStorage.removeItem('parknexus-token');
+      // Only reload if we're not already on the login or register page
+      if (window.location.pathname !== '/login' && window.location.pathname !== '/register' && window.location.pathname !== '/') {
+        window.location.href = '/login';
+      }
+    }
+    return Promise.reject(error);
+  }
+);
+
 export default api;

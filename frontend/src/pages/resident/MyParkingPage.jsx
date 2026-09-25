@@ -1,25 +1,38 @@
 import React, { useState, useEffect } from 'react';
 import parkingService from '../../services/parkingService';
+import vehicleService from '../../services/vehicleService';
+import { Link } from 'react-router-dom';
 
 const MyParkingPage = () => {
   const [spot, setSpot] = useState(null);
+  const [primaryVehicle, setPrimaryVehicle] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetchMyParking();
+    fetchMyData();
   }, []);
 
-  const fetchMyParking = async () => {
+  const fetchMyData = async () => {
     try {
-      const data = await parkingService.getMyParking();
-      setSpot(data);
+      const spotData = await parkingService.getMyParking();
+      setSpot(spotData);
     } catch (err) {
       if (err.response?.status === 404) {
         setSpot(null);
       } else {
         setError('Failed to load your assigned parking space.');
       }
+    }
+    
+    try {
+      const vehicles = await vehicleService.getMyVehicles();
+      const primary = vehicles.find(v => v.isPrimary);
+      if (primary) {
+        setPrimaryVehicle(primary);
+      }
+    } catch (err) {
+      console.error('Failed to load primary vehicle');
     } finally {
       setLoading(false);
     }
@@ -71,8 +84,22 @@ const MyParkingPage = () => {
             <div style={{ fontWeight: '600', fontSize: '1.2rem' }}>{spot.block}</div>
             <div style={{ color: 'var(--text-secondary)' }}>{spot.floor}</div>
           </div>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: '#e0f2fe', color: '#0369a1', padding: '0.5rem 1rem', borderRadius: '9999px', fontWeight: '500' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: '#e0f2fe', color: '#0369a1', padding: '0.5rem 1rem', borderRadius: '9999px', fontWeight: '500', marginBottom: '2rem' }}>
             <span>🔵</span> Assigned
+          </div>
+          
+          <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '1.5rem', textAlign: 'left' }}>
+            <h3 style={{ margin: '0 0 1rem 0', fontSize: '1.1rem' }}>Primary Vehicle</h3>
+            {primaryVehicle ? (
+              <div style={{ background: 'var(--bg-secondary)', padding: '1rem', borderRadius: '8px' }}>
+                <div style={{ fontWeight: 'bold', fontSize: '1.1rem', marginBottom: '0.25rem' }}>{primaryVehicle.registrationNumber}</div>
+                <div style={{ color: 'var(--text-secondary)' }}>{primaryVehicle.make} {primaryVehicle.model}</div>
+              </div>
+            ) : (
+              <div style={{ color: 'var(--text-secondary)' }}>
+                No primary vehicle set. <Link to="/vehicles" style={{ color: '#3b82f6', textDecoration: 'underline' }}>Manage vehicles</Link>
+              </div>
+            )}
           </div>
         </div>
       )}

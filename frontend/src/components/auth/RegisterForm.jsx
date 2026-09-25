@@ -49,8 +49,8 @@ const RegisterForm = () => {
     setIsSubmitting(true);
     try {
       const { confirmPassword, ...registerData } = formData;
-      await register(registerData);
-      navigate('/profile');
+      const registeredUser = await register(registerData);
+      navigate('/resident/dashboard');
     } catch (err) {
       setError(err.response?.data?.message || 'Registration failed. Please try again.');
     } finally {

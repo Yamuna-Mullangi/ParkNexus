@@ -27,4 +27,33 @@ router.route('/:id')
 router.route('/:id/assign')
   .put(protect, authorize('admin'), assignParkingSpot);
 
+const parkingShareController = require('../controllers/parkingShareController');
+
+router.route('/shared')
+  .get(protect, parkingShareController.getAvailableSharedSpots);
+
+router.route('/shares/my')
+  .get(protect, authorize('resident'), parkingShareController.getMyShares);
+
+router.route('/share-requests/received')
+  .get(protect, authorize('resident'), parkingShareController.getReceivedRequests);
+
+router.route('/share-requests/sent')
+  .get(protect, authorize('resident'), parkingShareController.getSentRequests);
+
+router.route('/:id/share')
+  .post(protect, authorize('resident'), parkingShareController.createShare);
+
+router.route('/shares/:id')
+  .delete(protect, authorize('resident'), parkingShareController.cancelShare);
+
+router.route('/shares/:id/request')
+  .post(protect, authorize('resident'), parkingShareController.requestShare);
+
+router.route('/share-requests/:id/approve')
+  .put(protect, authorize('resident'), parkingShareController.approveShareRequest);
+
+router.route('/share-requests/:id/reject')
+  .put(protect, authorize('resident'), parkingShareController.rejectShareRequest);
+
 module.exports = router;
