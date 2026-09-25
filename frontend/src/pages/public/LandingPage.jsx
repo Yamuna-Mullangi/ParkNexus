@@ -8,8 +8,9 @@ import {
 import '../../components/landing/Landing.css'; // Assume we will create/update this
 
 // Reusing Navbar from existing components or a custom one if missing
-import Navbar from '../../components/navigation/Navbar';
+import LandingNavbar from '../../components/navigation/LandingNavbar';
 import Footer from '../../components/landing/Footer';
+
 
 const Hero = () => (
   <section className="landing-hero">
@@ -200,7 +201,7 @@ const CTA = () => (
 const LandingPage = () => {
   return (
     <div className="landing-page-v2">
-      <Navbar />
+      <LandingNavbar />
       <main>
         <Hero />
         <TrustStrip />
