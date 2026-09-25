@@ -26,7 +26,7 @@ const initSocketServer = (server) => {
         return next(new Error('Authentication error: Token missing'));
       }
 
-      const decoded = jwt.verify(token, process.env.JWT_SECRET);
+      const decoded = jwt.verify(token, process.env.JWT_SECRET || 'parknexus_default_secret_key_123');
       const user = await User.findById(decoded.id).select('-password');
       
       if (!user) {
