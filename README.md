@@ -89,3 +89,20 @@ The system incorporates three cohesive, role-based dashboards that serve as the 
 - **Resident Dashboard**: Provides a compact overview of assigned parking, upcoming reservations, active visitors, primary vehicles, and recent notifications, utilizing data scoping to ensure users only see their own context.
 - **Security Dashboard**: Optimized for fast gate operations. Shows active visitors currently inside, today's entry/exit stats, and items requiring attention (such as overdue visitors) to streamline physical security management.
 - **Admin Dashboard**: Acts as the administrative control center. Consolidates critical system statistics, including overall parking utilization, user demographics, gate activity, reservation trends, and recent system activity logs, alongside an "Attention Required" panel for maintenance and inactive user management.
+
+## Development Demo Data
+
+Run the following command from the ackend directory to populate the database with a complete set of interconnected test data:
+
+`ash
+npm run seed
+``n
+**Demo Accounts:**
+- **Resident:** resident@parknexus.dev
+- **Security:** security@parknexus.dev
+- **Admin:** admin@parknexus.dev
+
+*(Password for all demo accounts: Demo@12345)*
+
+> **Note:** These credentials and the seed script are intended for development and testing purposes only. The script is idempotent and will safely overwrite previous demo data without affecting real user records.
+
