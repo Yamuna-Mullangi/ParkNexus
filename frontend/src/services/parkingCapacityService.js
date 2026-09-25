@@ -7,7 +7,7 @@ import api from './api';
  */
 const getParkingCapacity = async (filters = {}) => {
   const queryParams = new URLSearchParams(filters).toString();
-  const res = await api.get(`/api/parking/capacity?${queryParams}`);
+  const res = await api.get(`/parking/capacity?${queryParams}`);
   return res.data;
 };
 
@@ -18,7 +18,7 @@ const getParkingCapacity = async (filters = {}) => {
  */
 const getParkingCapacityBreakdown = async (params = {}) => {
   const queryParams = new URLSearchParams(params).toString();
-  const res = await api.get(`/api/parking/capacity/breakdown?${queryParams}`);
+  const res = await api.get(`/parking/capacity/breakdown?${queryParams}`);
   return res.data;
 };
 
