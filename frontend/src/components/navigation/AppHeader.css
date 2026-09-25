@@ -1,7 +1,9 @@
 .app-header {
   height: 64px;
-  background-color: var(--bg-card);
-  border-bottom: 1px solid var(--border-color);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-bottom: 1px solid var(--glass-border);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -55,11 +57,13 @@
   position: absolute;
   top: 100%;
   right: 0;
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-color);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
   border-radius: 8px;
   padding: 1rem;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--glass-shadow);
   min-width: 200px;
   display: none;
   z-index: 1000;
@@ -78,3 +82,4 @@
     display: block;
   }
 }
+

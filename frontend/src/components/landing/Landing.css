@@ -2,6 +2,21 @@
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   color: var(--color-text);
   background-color: var(--color-background);
+  position: relative;
+}
+
+.landing-page-v2::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: 
+    linear-gradient(45deg, var(--color-border) 25%, transparent 25%, transparent 75%, var(--color-border) 75%, var(--color-border)),
+    linear-gradient(45deg, var(--color-border) 25%, transparent 25%, transparent 75%, var(--color-border) 75%, var(--color-border));
+  background-size: 60px 60px;
+  background-position: 0 0, 30px 30px;
+  opacity: 0.05;
+  z-index: 0;
+  pointer-events: none;
 }
 
 /* Hero Section */
@@ -11,7 +26,7 @@
   align-items: center;
   justify-content: center;
   padding: 6rem 2rem 4rem;
-  background: linear-gradient(to bottom, var(--bg-secondary), var(--color-background));
+  background: transparent; position: relative; z-index: 1;
   text-align: center;
   min-height: 80vh;
 }
@@ -131,21 +146,24 @@
 .hero-dashboard-mockup {
   width: 100%;
   max-width: 500px;
-  background: var(--color-surface);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   border-radius: 12px;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  box-shadow: var(--glass-shadow);
   overflow: hidden;
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--glass-border);
   transform: rotateY(-5deg) rotateX(5deg);
-  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, box-shadow 0.3s ease;
 }
 
 .hero-dashboard-mockup:hover {
   transform: rotateY(0) rotateX(0);
+  box-shadow: var(--glass-shadow), var(--hover-glow);
 }
 
 .mockup-header {
-  background: var(--color-background);
+  background: transparent; position: relative; z-index: 1;
   padding: 0.75rem 1rem;
   border-bottom: 1px solid var(--color-border);
 }
@@ -170,11 +188,14 @@
 }
 
 .mockup-widget {
-  background: var(--color-background);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   padding: 1.5rem;
   border-radius: 8px;
   flex: 1 1 calc(50% - 1rem);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
 }
 
 .mockup-widget h4 {
@@ -192,7 +213,7 @@
 .mockup-map {
   width: 100%;
   height: 150px;
-  background: var(--color-border);
+  background: var(--glass-border);
   border-radius: 8px;
   display: flex;
   gap: 1rem;
@@ -234,7 +255,7 @@
   justify-content: center;
   gap: 2rem;
   padding: 3rem 2rem;
-  background: var(--color-surface);
+  background: transparent; position: relative; z-index: 1;
   border-top: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
 }
@@ -254,7 +275,7 @@
 /* Core Features */
 .core-features {
   padding: 6rem 5%;
-  background: var(--color-surface);
+  background: transparent; position: relative; z-index: 1;
 }
 
 .section-header {
@@ -282,15 +303,19 @@
 
 .feature-card {
   padding: 2rem;
-  background: var(--color-background);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   border-radius: 12px;
-  border: 1px solid var(--color-border);
-  transition: transform 0.2s, box-shadow 0.2s;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .feature-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+  box-shadow: var(--glass-shadow), var(--hover-glow);
+  border-color: rgba(59, 130, 246, 0.5);
 }
 
 .feature-icon {
@@ -319,7 +344,7 @@
 /* How It Works */
 .how-it-works {
   padding: 6rem 5%;
-  background: var(--color-background);
+  background: transparent; position: relative; z-index: 1;
 }
 
 .workflow-steps {
@@ -359,7 +384,7 @@
 /* Experiences */
 .experiences {
   padding: 6rem 5%;
-  background: var(--color-surface);
+  background: transparent; position: relative; z-index: 1;
 }
 
 .experience-row {
@@ -414,7 +439,7 @@
   flex: 1;
   width: 100%;
   min-height: 400px;
-  background: var(--color-border);
+  background: var(--glass-border);
   border-radius: 16px;
   border: 1px solid var(--color-border);
 }
@@ -449,12 +474,22 @@
 }
 
 .rec-card {
-  background: #1f2937;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   padding: 2rem;
   border-radius: 12px;
-  border: 1px solid #374151;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
   text-align: left;
   min-width: 300px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.rec-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--glass-shadow), var(--hover-glow);
+  border-color: rgba(59, 130, 246, 0.5);
 }
 
 .rec-card h4 {
@@ -478,7 +513,7 @@
 .final-cta {
   padding: 8rem 5%;
   text-align: center;
-  background: var(--bg-secondary);
+  background: transparent; position: relative; z-index: 1;
 }
 
 .final-cta h2 {
@@ -503,6 +538,8 @@
 .cta-actions .btn-outline {
   border-color: #9ca3af;
 }
+
+
 
 
 
