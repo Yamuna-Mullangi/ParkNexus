@@ -42,12 +42,12 @@ const LoginForm = () => {
 
   const footer = (
     <span>
-      Don't have an account? <Link to="/register" className="auth-link">Create account</Link>
+      Don't have an account? <Link to="/register" className="auth-link">Register</Link>
     </span>
   );
 
   return (
-    <AuthCard title="Welcome back" footer={footer}>
+    <AuthCard title="Welcome Back" subtitle="Sign in to your ParkNexus account" footer={footer}>
       {error && <div className="auth-error">{error}</div>}
       <form onSubmit={handleSubmit} className="auth-form">
         <div className="form-group">
@@ -101,3 +101,5 @@ const LoginForm = () => {
 };
 
 export default LoginForm;
+
+

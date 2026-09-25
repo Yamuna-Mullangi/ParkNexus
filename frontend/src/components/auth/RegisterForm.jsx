@@ -65,7 +65,7 @@ const RegisterForm = () => {
   );
 
   return (
-    <AuthCard title="Create your account" footer={footer}>
+    <AuthCard title="Create Account" subtitle="Join ParkNexus and manage your parking easily." footer={footer}>
       {error && <div className="auth-error">{error}</div>}
       <form onSubmit={handleSubmit} className="auth-form">
         <div className="form-group">
@@ -175,3 +175,4 @@ const RegisterForm = () => {
 };
 
 export default RegisterForm;
+

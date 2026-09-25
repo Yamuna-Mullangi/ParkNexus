@@ -3,13 +3,7 @@ import Navbar from '../../components/navigation/Navbar';
 import RegisterForm from '../../components/auth/RegisterForm';
 
 const RegisterPage = () => {
-  return (
-    <div className="page-wrapper">
-      <main className="auth-page" style={{ paddingTop: '120px', paddingBottom: '40px' }}>
-        <RegisterForm />
-      </main>
-    </div>
-  );
+  return <RegisterForm />;
 };
 
 export default RegisterPage;

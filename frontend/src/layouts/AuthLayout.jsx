@@ -16,13 +16,13 @@ const AuthLayout = () => {
 
   return (
     <div className="auth-layout">
-      <div className="auth-header">
-        <Link to="/" className="auth-brand">
-          <Car className="brand-icon" size={28} style={{ color: '#2563eb' }} />
-          <span style={{ fontSize: '1.5rem', fontWeight: '800', color: '#111827' }}>ParkNexus</span>
-        </Link>
-      </div>
-      <div className="auth-content-area">
+      <div className="auth-layout-inner">
+        <div className="auth-logo-container">
+          <Link to="/" className="auth-brand-centered">
+            <Car className="brand-icon" size={32} />
+            <span className="brand-text">ParkNexus</span>
+          </Link>
+        </div>
         <Outlet />
       </div>
     </div>
