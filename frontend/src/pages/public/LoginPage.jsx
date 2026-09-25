@@ -5,7 +5,6 @@ import LoginForm from '../../components/auth/LoginForm';
 const LoginPage = () => {
   return (
     <div className="page-wrapper">
-      <Navbar />
       <main className="auth-page">
         <LoginForm />
       </main>

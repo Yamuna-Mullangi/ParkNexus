@@ -144,12 +144,11 @@ const getUserActivityHistory = async ({ user, role, filters = {} }) => {
         .sort({ entryTime: -1 }) // Gate entries are better sorted by entryTime
         .limit(fetchLimit)
         .populate('visitor', 'fullName')
-        .populate('gateAssigned')
         .then(res => res.map(g => ({
           id: g._id,
           type: 'gateEntry',
           title: `Gate Activity`,
-          description: `${g.visitor?.fullName || 'Unknown'} at Gate ${g.gateAssigned?.name || 'Unknown'}`,
+          description: `${g.visitor?.fullName || 'Unknown'} at Gate ${g.entryGate || 'Unknown'}`,
           timestamp: g.entryTime || g.createdAt,
           status: g.status,
           relatedEntityId: g._id,

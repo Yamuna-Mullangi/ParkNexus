@@ -1,5 +1,10 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+import PublicLayout from '../layouts/PublicLayout';
+import AuthLayout from '../layouts/AuthLayout';
+import AuthenticatedLayout from '../layouts/AuthenticatedLayout';
+import ProtectedRoute from './ProtectedRoute';
+
 import LandingPage from '../pages/public/LandingPage';
 import LoginPage from '../pages/public/LoginPage';
 import RegisterPage from '../pages/public/RegisterPage';
@@ -29,57 +34,64 @@ import SystemSettingsPage from '../pages/admin/SystemSettingsPage';
 import FavoriteParkingPage from '../pages/resident/FavoriteParkingPage';
 import OperationsCalendarPage from '../pages/calendar/OperationsCalendarPage';
 import ActivityHistoryPage from '../pages/activity/ActivityHistoryPage';
-import ProtectedRoute from './ProtectedRoute';
 
 const AppRoutes = () => {
   return (
     <Routes>
       {/* Public Routes */}
-      <Route path="/" element={<LandingPage />} />
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/register" element={<RegisterPage />} />
+      <Route element={<PublicLayout />}>
+        <Route path="/" element={<LandingPage />} />
+      </Route>
 
-      {/* Protected Routes */}
+      {/* Auth Routes */}
+      <Route element={<AuthLayout />}>
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+      </Route>
+
+      {/* Protected Authenticated Routes */}
       <Route element={<ProtectedRoute />}>
-        <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/vehicles" element={<VehiclesPage />} />
-        <Route path="/notifications" element={<NotificationsPage />} />
-        
-        {/* Parking Routes */}
-        <Route path="/parking-map" element={<ParkingMapPage />} />
-        <Route path="/my-parking" element={<MyParkingPage />} />
-        <Route path="/reservations" element={<ReservationsPage />} />
-        <Route path="/share-my-parking" element={<ParkingSharingPage />} />
-        <Route path="/shared-parking" element={<SharedParkingPage />} />
-        <Route path="/share-requests" element={<ShareRequestsPage />} />
-        
-        {/* Admin Routes */}
-        <Route path="/admin/dashboard" element={<AdminDashboardPage />} />
-        <Route path="/admin/calendar" element={<OperationsCalendarPage />} />
-        <Route path="/admin/users" element={<UserManagementPage />} />
-        <Route path="/admin/parking" element={<ParkingManagementPage />} />
-        <Route path="/admin/logs" element={<ActivityLogsPage />} />
-        <Route path="/admin/reports" element={<ReportsPage />} />
-        <Route path="/admin/settings" element={<SystemSettingsPage />} />
+        <Route element={<AuthenticatedLayout />}>
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/vehicles" element={<VehiclesPage />} />
+          <Route path="/notifications" element={<NotificationsPage />} />
+          
+          {/* Parking Routes */}
+          <Route path="/parking-map" element={<ParkingMapPage />} />
+          <Route path="/my-parking" element={<MyParkingPage />} />
+          <Route path="/reservations" element={<ReservationsPage />} />
+          <Route path="/share-my-parking" element={<ParkingSharingPage />} />
+          <Route path="/shared-parking" element={<SharedParkingPage />} />
+          <Route path="/share-requests" element={<ShareRequestsPage />} />
+          
+          {/* Admin Routes */}
+          <Route path="/admin/dashboard" element={<AdminDashboardPage />} />
+          <Route path="/admin/calendar" element={<OperationsCalendarPage />} />
+          <Route path="/admin/users" element={<UserManagementPage />} />
+          <Route path="/admin/parking" element={<ParkingManagementPage />} />
+          <Route path="/admin/logs" element={<ActivityLogsPage />} />
+          <Route path="/admin/reports" element={<ReportsPage />} />
+          <Route path="/admin/settings" element={<SystemSettingsPage />} />
 
-        {/* Resident Routes */}
-        <Route path="/resident/dashboard" element={<ResidentDashboardPage />} />
-        <Route path="/resident/calendar" element={<OperationsCalendarPage />} />
-        <Route path="/resident/history" element={<ActivityHistoryPage />} />
-        <Route path="/resident/parking" element={<ParkingMapPage />} />
-        <Route path="/resident/favorites" element={<FavoriteParkingPage />} />
-        <Route path="/settings" element={<SettingsPage />} />
-        
-        {/* Visitor Routes */}
-        <Route path="/visitors" element={<VisitorsPage />} />
-        <Route path="/visitor-passes/:id" element={<VisitorPassPage />} />
+          {/* Resident Routes */}
+          <Route path="/resident/dashboard" element={<ResidentDashboardPage />} />
+          <Route path="/resident/calendar" element={<OperationsCalendarPage />} />
+          <Route path="/resident/history" element={<ActivityHistoryPage />} />
+          <Route path="/resident/parking" element={<ParkingMapPage />} />
+          <Route path="/resident/favorites" element={<FavoriteParkingPage />} />
+          <Route path="/settings" element={<SettingsPage />} />
+          
+          {/* Visitor Routes */}
+          <Route path="/visitors" element={<VisitorsPage />} />
+          <Route path="/visitor-passes/:id" element={<VisitorPassPage />} />
 
-        {/* Security Routes */}
-        <Route path="/security/dashboard" element={<SecurityDashboardPage />} />
-        <Route path="/security/calendar" element={<OperationsCalendarPage />} />
-        <Route path="/security/verify" element={<VisitorVerificationPage />} />
-        <Route path="/security/active" element={<ActiveVisitorsPage />} />
-        <Route path="/security/history" element={<GateHistoryPage />} />
+          {/* Security Routes */}
+          <Route path="/security/dashboard" element={<SecurityDashboardPage />} />
+          <Route path="/security/calendar" element={<OperationsCalendarPage />} />
+          <Route path="/security/verify" element={<VisitorVerificationPage />} />
+          <Route path="/security/active" element={<ActiveVisitorsPage />} />
+          <Route path="/security/history" element={<GateHistoryPage />} />
+        </Route>
       </Route>
     </Routes>
   );

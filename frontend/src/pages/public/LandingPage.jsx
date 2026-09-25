@@ -201,7 +201,6 @@ const CTA = () => (
 const LandingPage = () => {
   return (
     <div className="landing-page-v2">
-      <LandingNavbar />
       <main>
         <Hero />
         <TrustStrip />
@@ -211,7 +210,6 @@ const LandingPage = () => {
         <SmartRecommendations />
         <CTA />
       </main>
-      <Footer />
     </div>
   );
 };

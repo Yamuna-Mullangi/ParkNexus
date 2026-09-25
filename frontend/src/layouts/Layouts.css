@@ -1,0 +1,69 @@
+/* Public Layout Styles */
+.public-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Auth Layout Styles */
+.auth-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--bg-default);
+}
+
+.auth-header {
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: center;
+  background-color: var(--bg-card);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.auth-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.auth-content-area {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+/* Authenticated Layout Styles */
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--bg-default);
+}
+
+.app-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-left: 250px;
+  min-width: 0;
+  transition: margin-left 0.3s ease;
+}
+
+.app-content {
+  flex: 1;
+  padding: 2rem;
+  overflow-x: hidden;
+}
+
+@media (max-width: 991px) {
+  .app-main {
+    margin-left: 0;
+  }
+  
+  .app-content {
+    padding: 1rem;
+  }
+}
