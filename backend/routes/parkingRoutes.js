@@ -19,13 +19,6 @@ router.route('/')
 router.route('/my')
   .get(protect, getMyParking);
 
-router.route('/:id')
-  .get(protect, getParkingSpot)
-  .put(protect, authorize('admin'), updateParkingSpot)
-  .delete(protect, authorize('admin'), deactivateParkingSpot);
-
-router.route('/:id/assign')
-  .put(protect, authorize('admin'), assignParkingSpot);
 
 const parkingShareController = require('../controllers/parkingShareController');
 
@@ -56,4 +49,13 @@ router.route('/share-requests/:id/approve')
 router.route('/share-requests/:id/reject')
   .put(protect, authorize('resident'), parkingShareController.rejectShareRequest);
 
+router.route('/:id')
+  .get(protect, getParkingSpot)
+  .put(protect, authorize('admin'), updateParkingSpot)
+  .delete(protect, authorize('admin'), deactivateParkingSpot);
+
+router.route('/:id/assign')
+  .put(protect, authorize('admin'), assignParkingSpot);
+
 module.exports = router;
+
