@@ -17,7 +17,7 @@ const Navbar = () => {
 
   useEffect(() => {
     // Check saved theme
-    const savedTheme = localStorage.getItem('parknexus-theme') || 'light';
+    const savedTheme = localStorage.getItem('parknexus-theme') || 'dark';
     setTheme(savedTheme);
     document.documentElement.setAttribute('data-theme', savedTheme);
 
@@ -214,4 +214,5 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
 

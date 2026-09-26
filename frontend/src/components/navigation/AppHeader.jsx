@@ -12,7 +12,7 @@ const AppHeader = ({ toggleMobileMenu }) => {
   const [theme, setTheme] = useState('light');
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem('parknexus-theme') || 'light';
+    const savedTheme = localStorage.getItem('parknexus-theme') || 'dark';
     setTheme(savedTheme);
     document.documentElement.setAttribute('data-theme', savedTheme);
   }, []);
@@ -62,4 +62,5 @@ const AppHeader = ({ toggleMobileMenu }) => {
 };
 
 export default AppHeader;
+
 
