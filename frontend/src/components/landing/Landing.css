@@ -1073,3 +1073,71 @@
   border-color: rgba(0, 0, 0, 0.2) !important;
   font-weight: 700;
 }
+
+/* Responsive Adjustments for Mobile Devices */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.25rem !important;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem !important;
+  }
+
+  .section-header h2, 
+  .experience-content h2, 
+  .smart-recs h2, 
+  .final-cta h2 {
+    font-size: 2rem !important;
+  }
+
+  .section-header p, 
+  .smart-recs p, 
+  .final-cta p {
+    font-size: 1rem !important;
+  }
+
+  .landing-hero {
+    padding: 5rem 1.5rem 3rem !important;
+  }
+
+  /* Make sure the 3D cards scale down nicely if needed */
+  .uiverse-container {
+    height: 240px !important;
+  }
+  
+  .card-content .title {
+    font-size: 1.1rem !important;
+  }
+  
+  .card-content .subtitle {
+    font-size: 0.85rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.75rem !important;
+  }
+  
+  .section-header h2, 
+  .experience-content h2, 
+  .smart-recs h2, 
+  .final-cta h2 {
+    font-size: 1.5rem !important;
+  }
+  
+  .landing-hero {
+    padding: 4rem 1rem 2rem !important;
+  }
+  
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .hero-actions .btn {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+}
