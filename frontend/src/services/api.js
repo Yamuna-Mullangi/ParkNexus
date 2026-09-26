@@ -1,7 +1,10 @@
 import axios from 'axios';
 
+const isDevelopment = import.meta.env.MODE === 'development';
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || '/api',
+  baseURL: isDevelopment 
+    ? '/api' 
+    : (import.meta.env.VITE_API_URL || 'https://parknexus-aq19.onrender.com/api'),
 });
 
 // Add a request interceptor to include the auth token

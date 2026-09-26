@@ -8,7 +8,7 @@ const initSocketServer = (server) => {
   io = new Server(server, {
     cors: {
       origin: function(origin, callback) {
-        if (!origin || origin.includes('vercel.app') || origin === process.env.CLIENT_URL || origin.includes('localhost')) {
+        if (!origin || origin.includes('vercel.app') || origin === process.env.CLIENT_URL || origin.includes('localhost') || origin === 'https://park-nexus.vercel.app' || origin === 'https://parknexus-aq19.onrender.com') {
           return callback(null, true);
         }
         return callback(new Error('Not allowed by CORS'));

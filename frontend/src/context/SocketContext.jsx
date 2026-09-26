@@ -18,7 +18,10 @@ export const SocketProvider = ({ children }) => {
 
     if (user) {
       const token = localStorage.getItem('parknexus-token');
-      const socketUrl = import.meta.env.VITE_SOCKET_URL || import.meta.env.VITE_API_URL?.replace('/api', '') || 'http://localhost:5001';
+      const isDevelopment = import.meta.env.MODE === 'development';
+      const socketUrl = isDevelopment
+        ? 'http://localhost:5001'
+        : (import.meta.env.VITE_SOCKET_URL || import.meta.env.VITE_API_URL?.replace('/api', '') || 'https://parknexus-aq19.onrender.com');
 
       newSocket = io(socketUrl, {
         auth: { token },
