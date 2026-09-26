@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Moon, Sun, Menu, X, Car } from 'lucide-react';
+import { Moon, Sun, Menu, X } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import './Navbar.css';
+import logo from '../../assets/logo.png';
 
 import NotificationBell from '../notifications/NotificationBell';
 
@@ -43,9 +44,9 @@ const Navbar = () => {
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container navbar-container">
         {/* Brand */}
-        <Link to="/" className="navbar-brand">
-          <Car className="brand-icon" size={24} />
-          <span className="brand-name">ParkNexus</span>
+        <Link to="/" className="navbar-brand" style={{ flexDirection: 'column', alignItems: 'center', gap: '2px', position: 'relative', top: '10px' }}>
+          <img src={logo} alt="ParkNexus Logo" style={{ height: '70px', width: 'auto', objectFit: 'contain' }} />
+          <span className="brand-name" style={{ fontSize: '0.9rem', lineHeight: '1', color: 'var(--color-text)' }}>ParkNexus</span>
         </Link>
 
         {/* Desktop Menu */}

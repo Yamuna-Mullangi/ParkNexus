@@ -243,6 +243,24 @@ const CTA = () => (
 const LandingPage = () => {
   return (
     <>
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100vw',
+          height: '100vh',
+          objectFit: 'cover',
+          zIndex: -1,
+          opacity: 0.4
+        }}
+      >
+        <source src="/carparkingvideo.mp4" type="video/mp4" />
+      </video>
       <div className="landing-page-v2" style={{ position: 'relative', zIndex: 1 }}>
         <main>
           <Hero />
