@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { Menu, Moon, Sun, UserCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import NotificationBell from '../notifications/NotificationBell';
+import ThemeToggle from './ThemeToggle';
 import './AppHeader.css';
 
 const AppHeader = ({ toggleMobileMenu }) => {
@@ -37,9 +38,7 @@ const AppHeader = ({ toggleMobileMenu }) => {
       </div>
 
       <div className="header-right">
-        <button onClick={toggleTheme} className="theme-toggle" aria-label="Toggle Theme">
-          {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
-        </button>
+        <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
         
         <NotificationBell />
         
@@ -63,3 +62,4 @@ const AppHeader = ({ toggleMobileMenu }) => {
 };
 
 export default AppHeader;
+

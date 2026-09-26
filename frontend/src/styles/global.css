@@ -153,3 +153,9 @@ ul {
   box-shadow: var(--glass-shadow), var(--hover-glow);
 }
 
+
+[data-theme="light"] .btn, 
+[data-theme="light"] .btn-primary, 
+[data-theme="light"] .btn-outline {
+  color: var(--color-primary) !important;
+}

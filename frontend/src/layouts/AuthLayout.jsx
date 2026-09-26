@@ -16,8 +16,18 @@ const AuthLayout = () => {
 
   return (
     <div className="auth-layout">
-      <div className="auth-layout-inner">
-        <div className="auth-logo-container">
+      <video 
+        autoPlay 
+        muted 
+        loop 
+        className="auth-video-bg"
+      >
+        <source src="/gemini_generated_video_134dcde1.mp4" type="video/mp4" />
+      </video>
+      <div className="auth-overlay"></div>
+      
+      <div className="auth-layout-inner auth-content-wrapper">
+        <div className="auth-logo-container" style={{ alignSelf: 'flex-start', marginLeft: '10px' }}>
           <Link to="/" className="auth-brand-centered">
             <Car className="brand-icon" size={32} />
             <span className="brand-text">ParkNexus</span>

@@ -96,11 +96,14 @@ const LoginForm = () => {
         
         <button 
           type="submit" 
-          className="btn btn-primary btn-large auth-submit-btn"
+          className="auth-submit-btn"
           disabled={isSubmitting}
         >
           {isSubmitting ? 'Signing in...' : 'Sign In'}
         </button>
+        <div style={{ textAlign: 'center', marginTop: '12px' }}>
+          <a href="#" style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.85rem', textDecoration: 'none' }}>Sign In Policy</a>
+        </div>
       </form>
     </AuthCard>
   );

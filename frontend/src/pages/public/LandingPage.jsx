@@ -83,10 +83,36 @@ const CoreFeatures = () => {
       </div>
       <div className="features-grid">
         {features.map((f, i) => (
-          <div className="feature-card" key={i}>
-            <div className="feature-icon">{f.icon}</div>
-            <h3>{f.title}</h3>
-            <p>{f.desc}</p>
+          <div className="uiverse-container noselect" key={i}>
+            <div className="canvas">
+              {Array.from({ length: 25 }).map((_, j) => (
+                <div key={j} className={`tracker tr-${j + 1}`}></div>
+              ))}
+              <div className="uiverse-card">
+                <div className="card-glare"></div>
+                <div className="cyber-lines">
+                  <span></span><span></span><span></span><span></span>
+                </div>
+                <div className="corner-elements">
+                  <span></span><span></span><span></span><span></span>
+                </div>
+                <div className="scan-line"></div>
+                <div className="glowing-elements">
+                  <div className="glow-1"></div>
+                  <div className="glow-2"></div>
+                  <div className="glow-3"></div>
+                </div>
+                <div className="card-particles">
+                  <span></span><span></span><span></span><span></span><span></span><span></span>
+                </div>
+                
+                <div className="card-content">
+                  <div className="feature-icon">{f.icon}</div>
+                  <h3 className="title">{f.title}</h3>
+                  <p className="subtitle">{f.desc}</p>
+                </div>
+              </div>
+            </div>
           </div>
         ))}
       </div>
@@ -95,7 +121,7 @@ const CoreFeatures = () => {
 };
 
 const HowItWorks = () => (
-  <section className="how-it-works">
+  <section id="about" className="how-it-works">
     <div className="section-header">
       <h2>How It Works</h2>
       <p>The simplest workflow for residents and guests.</p>

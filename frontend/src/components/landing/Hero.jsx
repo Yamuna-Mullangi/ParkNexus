@@ -15,7 +15,7 @@ const Hero = () => {
             <button className="btn btn-outline btn-large">Explore ParkNexus</button>
           </div>
         </div>
-        
+
         <div className="hero-visual animate-fade-in" style={{ animationDelay: '0.2s' }}>
           <div className="parking-mockup">
             <div className="mockup-header">

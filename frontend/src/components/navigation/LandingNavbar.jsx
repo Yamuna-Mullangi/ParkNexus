@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { Moon, Sun, Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import './Navbar.css';
 import logo from '../../assets/logo.png';
+import ThemeToggle from './ThemeToggle';
 
 const LandingNavbar = () => {
   const { isAuthenticated } = useAuth();
@@ -49,9 +50,7 @@ const LandingNavbar = () => {
 
         {/* Actions */}
         <div className="navbar-actions hide-mobile">
-          <button onClick={toggleTheme} className="theme-toggle" aria-label="Toggle Theme" style={{ marginRight: '1rem' }}>
-            {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
-          </button>
+          <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
           
           {isAuthenticated ? (
             <Link to="/resident/dashboard" className="btn btn-primary">Go to Dashboard</Link>
@@ -65,9 +64,7 @@ const LandingNavbar = () => {
 
         {/* Mobile Toggle */}
         <div className="mobile-toggle">
-          <button onClick={toggleTheme} className="theme-toggle mr-sm" aria-label="Toggle Theme">
-            {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
-          </button>
+          <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
           <button 
             className="menu-btn" 
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -102,3 +99,4 @@ const LandingNavbar = () => {
 };
 
 export default LandingNavbar;
+
