@@ -66,7 +66,7 @@ const ParkingRecommendationForm = ({ onSearch, loading }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0,0,0,0.05)', marginBottom: '2rem' }}>
+    <form onSubmit={handleSubmit} className="glass-panel" style={{ marginBottom: "2rem" }}>
       <h2 style={{ marginTop: 0, marginBottom: '1.5rem', fontSize: '1.25rem' }}>Smart Parking Recommendations</h2>
       
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem', marginBottom: '1rem' }}>

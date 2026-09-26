@@ -85,7 +85,7 @@ const VisitorForm = ({ onSubmit, onCancel, initialData = null, loading = false, 
   };
 
   return (
-    <div className="visitor-form-container" style={{ background: 'var(--bg-card)', padding: '2rem', borderRadius: '8px', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)' }}>
+    <div className="visitor-form-container glass-panel">
       <h3 style={{ marginTop: 0, marginBottom: '1.5rem' }}>{initialData ? 'Edit Visitor' : 'Register Visitor'}</h3>
       
       {error && <div className="error-state" style={{ color: '#ef4444', marginBottom: '1rem', padding: '0.5rem', background: '#fee2e2', borderRadius: '4px' }}>{error}</div>}
@@ -94,22 +94,22 @@ const VisitorForm = ({ onSubmit, onCancel, initialData = null, loading = false, 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
           <div className="form-group">
             <label>Full Name *</label>
-            <input type="text" name="fullName" required value={formData.fullName} onChange={handleChange} placeholder="e.g. John Doe" style={{ width: '100%', padding: '0.75rem', borderRadius: '4px', border: '1px solid #d1d5db' }} />
+            <input type="text" name="fullName" required value={formData.fullName} onChange={handleChange} placeholder="e.g. John Doe" style={{ width: '100%', padding: '0.75rem', borderRadius: '4px', border: '1px solid var(--color-border)' }} />
           </div>
           <div className="form-group">
             <label>Phone Number *</label>
-            <input type="tel" name="phone" required value={formData.phone} onChange={handleChange} placeholder="e.g. +91 9876543210" style={{ width: '100%', padding: '0.75rem', borderRadius: '4px', border: '1px solid #d1d5db' }} />
+            <input type="tel" name="phone" required value={formData.phone} onChange={handleChange} placeholder="e.g. +91 9876543210" style={{ width: '100%', padding: '0.75rem', borderRadius: '4px', border: '1px solid var(--color-border)' }} />
           </div>
         </div>
         
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
           <div className="form-group">
             <label>Email (Optional)</label>
-            <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="e.g. john@example.com" style={{ width: '100%', padding: '0.75rem', borderRadius: '4px', border: '1px solid #d1d5db' }} />
+            <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="e.g. john@example.com" style={{ width: '100%', padding: '0.75rem', borderRadius: '4px', border: '1px solid var(--color-border)' }} />
           </div>
           <div className="form-group">
             <label>Purpose (Optional)</label>
-            <input type="text" name="purpose" value={formData.purpose} onChange={handleChange} placeholder="e.g. Delivery, Guest" style={{ width: '100%', padding: '0.75rem', borderRadius: '4px', border: '1px solid #d1d5db' }} />
+            <input type="text" name="purpose" value={formData.purpose} onChange={handleChange} placeholder="e.g. Delivery, Guest" style={{ width: '100%', padding: '0.75rem', borderRadius: '4px', border: '1px solid var(--color-border)' }} />
           </div>
         </div>
 
@@ -117,21 +117,21 @@ const VisitorForm = ({ onSubmit, onCancel, initialData = null, loading = false, 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
           <div className="form-group">
             <label>Arrival Date *</label>
-            <input type="date" name="arrivalDate" required value={formData.arrivalDate} onChange={handleChange} style={{ width: '100%', padding: '0.75rem', borderRadius: '4px', border: '1px solid #d1d5db' }} />
+            <input type="date" name="arrivalDate" required value={formData.arrivalDate} onChange={handleChange} style={{ width: '100%', padding: '0.75rem', borderRadius: '4px', border: '1px solid var(--color-border)' }} />
           </div>
           <div className="form-group">
             <label>Arrival Time *</label>
-            <input type="time" name="arrivalTime" required value={formData.arrivalTime} onChange={handleChange} style={{ width: '100%', padding: '0.75rem', borderRadius: '4px', border: '1px solid #d1d5db' }} />
+            <input type="time" name="arrivalTime" required value={formData.arrivalTime} onChange={handleChange} style={{ width: '100%', padding: '0.75rem', borderRadius: '4px', border: '1px solid var(--color-border)' }} />
           </div>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1.5rem' }}>
           <div className="form-group">
             <label>Departure Date *</label>
-            <input type="date" name="departureDate" required value={formData.departureDate} onChange={handleChange} style={{ width: '100%', padding: '0.75rem', borderRadius: '4px', border: '1px solid #d1d5db' }} />
+            <input type="date" name="departureDate" required value={formData.departureDate} onChange={handleChange} style={{ width: '100%', padding: '0.75rem', borderRadius: '4px', border: '1px solid var(--color-border)' }} />
           </div>
           <div className="form-group">
             <label>Departure Time *</label>
-            <input type="time" name="departureTime" required value={formData.departureTime} onChange={handleChange} style={{ width: '100%', padding: '0.75rem', borderRadius: '4px', border: '1px solid #d1d5db' }} />
+            <input type="time" name="departureTime" required value={formData.departureTime} onChange={handleChange} style={{ width: '100%', padding: '0.75rem', borderRadius: '4px', border: '1px solid var(--color-border)' }} />
           </div>
         </div>
 
@@ -139,7 +139,7 @@ const VisitorForm = ({ onSubmit, onCancel, initialData = null, loading = false, 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1.5rem' }}>
           <div className="form-group">
             <label>Assign My Vehicle</label>
-            <select name="vehicle" value={formData.vehicle} onChange={handleChange} style={{ width: '100%', padding: '0.75rem', borderRadius: '4px', border: '1px solid #d1d5db' }}>
+            <select name="vehicle" value={formData.vehicle} onChange={handleChange} style={{ width: '100%', padding: '0.75rem', borderRadius: '4px', border: '1px solid var(--color-border)' }}>
               <option value="">No Vehicle Selected</option>
               {vehicles.map(v => (
                 <option key={v._id} value={v._id}>
@@ -150,13 +150,13 @@ const VisitorForm = ({ onSubmit, onCancel, initialData = null, loading = false, 
           </div>
           <div className="form-group">
             <label>Or Visitor's Vehicle No.</label>
-            <input type="text" name="vehicleNumber" value={formData.vehicleNumber} onChange={handleChange} placeholder="e.g. AP 39 EF 3003" disabled={!!formData.vehicle} style={{ width: '100%', padding: '0.75rem', borderRadius: '4px', border: '1px solid #d1d5db', background: formData.vehicle ? '#f3f4f6' : 'white' }} />
+            <input type="text" name="vehicleNumber" value={formData.vehicleNumber} onChange={handleChange} placeholder="e.g. AP 39 EF 3003" disabled={!!formData.vehicle} style={{ width: '100%', padding: '0.75rem', borderRadius: '4px', border: '1px solid var(--color-border)', background: formData.vehicle ? 'var(--bg-secondary)' : 'var(--color-surface)' }} />
           </div>
         </div>
         
         <div className="form-group" style={{ marginBottom: '1.5rem' }}>
           <label>Notes</label>
-          <textarea name="notes" value={formData.notes} onChange={handleChange} rows="2" style={{ width: '100%', padding: '0.75rem', borderRadius: '4px', border: '1px solid #d1d5db' }}></textarea>
+          <textarea name="notes" value={formData.notes} onChange={handleChange} rows="2" style={{ width: '100%', padding: '0.75rem', borderRadius: '4px', border: '1px solid var(--color-border)' }}></textarea>
         </div>
         
         <div style={{ display: 'flex', gap: '1rem' }}>

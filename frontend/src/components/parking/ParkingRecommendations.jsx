@@ -65,7 +65,7 @@ const ParkingRecommendations = () => {
       )}
 
       {recommendations && (
-        <div style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+        <div className="glass-panel">
           <h3 style={{ marginTop: 0, marginBottom: '1.5rem', fontSize: '1.25rem', color: 'var(--text-primary)' }}>
             Top Recommendations
           </h3>

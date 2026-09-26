@@ -57,7 +57,7 @@ const SharedParkingPage = () => {
       ) : (
         <div className="parking-grid">
           {spots.map(spot => (
-            <div key={spot._id} style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
+            <div key={spot._id} className="glass-panel">
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem' }}>
                 <h3 style={{ margin: 0 }}>Spot: {spot.parkingSpot.spotNumber}</h3>
                 <span style={{ background: '#e0e7ff', color: '#4338ca', padding: '0.2rem 0.5rem', borderRadius: '4px', fontSize: '0.8rem' }}>Shared</span>

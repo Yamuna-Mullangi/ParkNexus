@@ -12,7 +12,7 @@ const VehicleCard = ({ vehicle, onEdit, onSetPrimary, onDeactivate }) => {
   };
 
   return (
-    <div className="vehicle-card" style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)', position: 'relative', border: vehicle.isPrimary ? '2px solid #3b82f6' : '1px solid var(--border-color)' }}>
+    <div className="vehicle-card glass-panel" style={{ position: "relative", border: vehicle.isPrimary ? "2px solid #3b82f6" : "1px solid var(--border-color)" }}>
       {vehicle.isPrimary && (
         <span style={{ position: 'absolute', top: '-10px', right: '10px', background: '#3b82f6', color: 'white', padding: '2px 8px', borderRadius: '12px', fontSize: '0.75rem', fontWeight: 'bold' }}>
           PRIMARY

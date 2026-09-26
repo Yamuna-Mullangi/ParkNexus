@@ -17,7 +17,7 @@ const VisitorCard = ({ visitor, onCancel, onGeneratePass }) => {
   const statusColor = getStatusColor(visitor.status);
 
   return (
-    <div className="visitor-card" style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)', border: '1px solid var(--border-color)' }}>
+    <div className="visitor-card glass-panel">
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
         <div>
           <h3 style={{ margin: '0 0 0.25rem 0' }}>{visitor.fullName}</h3>

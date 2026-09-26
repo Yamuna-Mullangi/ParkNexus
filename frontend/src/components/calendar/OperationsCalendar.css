@@ -2,7 +2,8 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  background: var(--bg-card);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
   border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 1.5rem;
@@ -84,7 +85,8 @@
   border: 1px solid var(--border-color);
   border-radius: 6px;
   min-width: 120px;
-  background: var(--bg-card);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
 }
 
 .week-day-header {
@@ -95,8 +97,8 @@
 }
 
 .week-day-header.today {
-  background: rgba(59, 130, 246, 0.1);
-  color: #3b82f6;
+  background: rgba(128, 12, 31, 0.1);
+  color: var(--pn-maroon);
   font-weight: bold;
 }
 
@@ -156,3 +158,4 @@
     text-align: center;
   }
 }
+

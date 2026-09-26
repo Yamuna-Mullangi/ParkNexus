@@ -61,31 +61,31 @@ const SecurityDashboardPage = () => {
 
       {/* Summary Cards */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1.5rem', marginBottom: '2.5rem' }}>
-        <div style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: '8px', border: '1px solid var(--border-color)', boxShadow: '0 2px 4px rgba(0,0,0,0.05)', textAlign: 'center' }}>
+        <div style={{ textAlign: "center" }} className="glass-panel">
           <div style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#3b82f6', marginBottom: '0.5rem' }}>{activeCount}</div>
           <div style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', fontWeight: 'bold' }}>Active Visitors</div>
         </div>
         {capacity && capacity.visitorCapacity > 0 && (
-          <div style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: '8px', border: '1px solid var(--border-color)', boxShadow: '0 2px 4px rgba(0,0,0,0.05)', textAlign: 'center' }}>
+          <div style={{ textAlign: "center" }} className="glass-panel">
             <div style={{ fontSize: '2.5rem', fontWeight: 'bold', color: capacity.visitorAvailable > 0 ? '#10b981' : '#ef4444', marginBottom: '0.5rem' }}>
               {capacity.visitorAvailable}
             </div>
             <div style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', fontWeight: 'bold' }}>Visitor Parking Available</div>
           </div>
         )}
-        <div style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: '8px', border: '1px solid var(--border-color)', boxShadow: '0 2px 4px rgba(0,0,0,0.05)', textAlign: 'center' }}>
+        <div style={{ textAlign: "center" }} className="glass-panel">
           <div style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#10b981', marginBottom: '0.5rem' }}>{checkedInToday}</div>
           <div style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', fontWeight: 'bold' }}>Today's Entries</div>
         </div>
-        <div style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: '8px', border: '1px solid var(--border-color)', boxShadow: '0 2px 4px rgba(0,0,0,0.05)', textAlign: 'center' }}>
+        <div style={{ textAlign: "center" }} className="glass-panel">
           <div style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#8b5cf6', marginBottom: '0.5rem' }}>{checkedOutToday}</div>
           <div style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', fontWeight: 'bold' }}>Today's Exits</div>
         </div>
-        <div style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: '8px', border: '1px solid var(--border-color)', boxShadow: '0 2px 4px rgba(0,0,0,0.05)', textAlign: 'center' }}>
+        <div style={{ textAlign: "center" }} className="glass-panel">
           <div style={{ fontSize: '2.5rem', fontWeight: 'bold', color: overdueVisitors.length > 0 ? '#f59e0b' : 'var(--text-primary)', marginBottom: '0.5rem' }}>{overdueVisitors.length}</div>
           <div style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', fontWeight: 'bold' }}>Pending / Overdue</div>
         </div>
-        <div style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: '8px', border: '1px solid var(--border-color)', boxShadow: '0 2px 4px rgba(0,0,0,0.05)', textAlign: 'center' }}>
+        <div style={{ textAlign: "center" }} className="glass-panel">
           <div style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#ef4444', marginBottom: '0.5rem' }}>{deniedToday}</div>
           <div style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', fontWeight: 'bold' }}>Denied Entries</div>
         </div>
@@ -96,7 +96,7 @@ const SecurityDashboardPage = () => {
         {/* Quick Actions & Overdue */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
           
-          <div style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+          <div className="glass-panel">
             <h2 style={{ marginTop: 0, marginBottom: '1.5rem', color: 'var(--text-primary)', fontSize: '1.25rem' }}>Primary Actions</h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               <Link to="/security/verify" className="btn btn-primary" style={{ padding: '1rem', textAlign: 'center', fontSize: '1rem' }}>
@@ -111,7 +111,7 @@ const SecurityDashboardPage = () => {
             </div>
           </div>
 
-          <div style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+          <div className="glass-panel">
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
               <h2 style={{ margin: 0, color: 'var(--text-primary)', fontSize: '1.25rem' }}>Attention Required</h2>
             </div>
@@ -155,7 +155,7 @@ const SecurityDashboardPage = () => {
         {/* Recent Activity */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
           
-          <div style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: '8px', border: '1px solid var(--border-color)', height: '100%' }}>
+          <div style={{ height: "100%" }} className="glass-panel">
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
               <h2 style={{ margin: 0, color: 'var(--text-primary)', fontSize: '1.25rem' }}>Recent Gate Activity</h2>
               <Link to="/security/history" style={{ color: '#3b82f6', textDecoration: 'none', fontSize: '0.9rem' }}>View All</Link>
@@ -207,3 +207,4 @@ const SecurityDashboardPage = () => {
 };
 
 export default SecurityDashboardPage;
+

@@ -18,18 +18,7 @@ app.use(mongoSanitize());
 
 // Middleware
 app.use(cors({
-  origin: function(origin, callback) {
-    const allowedOrigins = [
-      'http://localhost:5173',
-      'http://127.0.0.1:5173',
-      process.env.CLIENT_URL
-    ].filter(Boolean);
-    
-    if (!origin || allowedOrigins.includes(origin) || origin.includes('vercel.app')) {
-      return callback(null, true);
-    }
-    return callback(new Error('CORS Error: Origin not allowed'), false);
-  },
+  origin: true,
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'Accept']

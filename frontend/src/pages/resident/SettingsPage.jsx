@@ -14,7 +14,7 @@ const SettingsPage = () => {
       setLoading(true);
       const [prefs, myVehicles] = await Promise.all([
         preferenceService.getPreferences(),
-        vehicleService.getVehicles()
+        vehicleService.getMyVehicles()
       ]);
       setPreferences(prefs);
       setVehicles(myVehicles || []);
@@ -121,7 +121,7 @@ const SettingsPage = () => {
       <form onSubmit={handleSave} style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
         
         {/* Parking Preferences */}
-        <div style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+        <div className="glass-panel">
           <h2 style={{ marginTop: 0, marginBottom: '1.5rem', fontSize: '1.25rem', color: 'var(--text-primary)' }}>Parking Preferences</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem' }}>
             <div className="form-group">
@@ -151,7 +151,7 @@ const SettingsPage = () => {
         </div>
 
         {/* Reservation Defaults */}
-        <div style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+        <div className="glass-panel">
           <h2 style={{ marginTop: 0, marginBottom: '1.5rem', fontSize: '1.25rem', color: 'var(--text-primary)' }}>Reservation Defaults</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem' }}>
             <div className="form-group">
@@ -187,7 +187,7 @@ const SettingsPage = () => {
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
           {/* Notification Preferences */}
-          <div style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+          <div className="glass-panel">
             <h2 style={{ marginTop: 0, marginBottom: '1.5rem', fontSize: '1.25rem', color: 'var(--text-primary)' }}>Notification Preferences</h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               {Object.keys(preferences.notificationPreferences).map(key => (
@@ -200,7 +200,7 @@ const SettingsPage = () => {
           </div>
 
           {/* Dashboard Preferences */}
-          <div style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+          <div className="glass-panel">
             <h2 style={{ marginTop: 0, marginBottom: '1.5rem', fontSize: '1.25rem', color: 'var(--text-primary)' }}>Dashboard Preferences</h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               {Object.keys(preferences.dashboardPreferences).map(key => (

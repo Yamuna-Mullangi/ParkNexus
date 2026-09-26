@@ -147,7 +147,7 @@ const ReservationsPage = () => {
         <div className="reservations-content">
           <div className="parking-grid">
             {reservations.map(res => (
-              <div key={res._id} style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
+              <div key={res._id} className="glass-panel">
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem' }}>
                   <h3 style={{ margin: 0 }}>Spot: {res.parkingSpot?.spotNumber}</h3>
                   <span className={`status-badge ${res.status}`}>{res.status.toUpperCase()}</span>

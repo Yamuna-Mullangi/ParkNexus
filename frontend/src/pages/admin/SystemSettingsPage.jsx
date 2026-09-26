@@ -115,7 +115,7 @@ const SystemSettingsPage = () => {
       <form onSubmit={handleSave} style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
         
         {/* Reservation Rules */}
-        <div style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+        <div className="glass-panel">
           <h2 style={{ marginTop: 0, marginBottom: '1.5rem', fontSize: '1.25rem', color: 'var(--text-primary)' }}>Reservation Rules</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem' }}>
             <div className="form-group">
@@ -144,7 +144,7 @@ const SystemSettingsPage = () => {
         </div>
 
         {/* Visitor Rules */}
-        <div style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+        <div className="glass-panel">
           <h2 style={{ marginTop: 0, marginBottom: '1.5rem', fontSize: '1.25rem', color: 'var(--text-primary)' }}>Visitor Rules</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem' }}>
             <div className="form-group">
@@ -170,7 +170,7 @@ const SystemSettingsPage = () => {
 
         {/* Parking Rules & Recommendations */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
-          <div style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+          <div className="glass-panel">
             <h2 style={{ marginTop: 0, marginBottom: '1.5rem', fontSize: '1.25rem', color: 'var(--text-primary)' }}>Parking Rules</h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-primary)' }}>
@@ -201,7 +201,7 @@ const SystemSettingsPage = () => {
             </div>
           </div>
 
-          <div style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+          <div className="glass-panel">
             <h2 style={{ marginTop: 0, marginBottom: '1.5rem', fontSize: '1.25rem', color: 'var(--text-primary)' }}>Recommendation Settings</h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
               <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-primary)' }}>
@@ -217,7 +217,7 @@ const SystemSettingsPage = () => {
         </div>
 
         {/* Global Notifications */}
-        <div style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+        <div className="glass-panel">
           <h2 style={{ marginTop: 0, marginBottom: '1.5rem', fontSize: '1.25rem', color: 'var(--text-primary)' }}>Notification Settings</h2>
           <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-primary)' }}>
             <input type="checkbox" checked={settings.notificationSettings.notificationsEnabled} onChange={(e) => handleChange('notificationSettings', 'notificationsEnabled', e.target.checked)} />

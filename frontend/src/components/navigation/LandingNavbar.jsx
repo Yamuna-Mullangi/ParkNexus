@@ -40,10 +40,10 @@ const LandingNavbar = () => {
         </Link>
 
         {/* Desktop Menu - ONLY public links */}
-        <div className="navbar-menu hide-mobile" style={{ gap: '2rem' }}>
-          <a href="/#home" className="nav-link">Home</a>
-          <a href="/#features" className="nav-link">Features</a>
-          <a href="/#about" className="nav-link">About</a>
+        <div className="navbar-menu hide-mobile" style={{ gap: '1rem' }}>
+          <a href="/#home" className="nav-pattern-btn">Home</a>
+          <a href="/#features" className="nav-pattern-btn">Features</a>
+          <a href="/#about" className="nav-pattern-btn">About</a>
         </div>
 
         {/* Actions */}
@@ -56,7 +56,7 @@ const LandingNavbar = () => {
             <Link to="/resident/dashboard" className="btn btn-primary">Go to Dashboard</Link>
           ) : (
             <>
-              <Link to="/login" className="nav-link btn-login">Login</Link>
+              <Link to="/login" className="btn btn-outline">Login</Link>
               <Link to="/register" className="btn btn-primary">Register</Link>
             </>
           )}
@@ -80,9 +80,9 @@ const LandingNavbar = () => {
       {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
         <div className="mobile-menu">
-          <a href="/#home" className="mobile-link" onClick={() => setIsMobileMenuOpen(false)}>Home</a>
-          <a href="/#features" className="mobile-link" onClick={() => setIsMobileMenuOpen(false)}>Features</a>
-          <a href="/#about" className="mobile-link" onClick={() => setIsMobileMenuOpen(false)}>About</a>
+          <a href="/#home" className="mobile-link nav-pattern-btn" onClick={() => setIsMobileMenuOpen(false)}>Home</a>
+          <a href="/#features" className="mobile-link nav-pattern-btn" onClick={() => setIsMobileMenuOpen(false)}>Features</a>
+          <a href="/#about" className="mobile-link nav-pattern-btn" onClick={() => setIsMobileMenuOpen(false)}>About</a>
           
           <div className="mobile-actions" style={{ marginTop: '1rem', borderTop: '1px solid var(--border-color)', paddingTop: '1rem' }}>
             {isAuthenticated ? (

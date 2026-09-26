@@ -34,7 +34,13 @@ const LoginForm = () => {
         navigate('/resident/dashboard');
       }
     } catch (err) {
-      setError(err.response?.data?.message || 'Invalid email or password.');
+      if (err.response) {
+        setError(err.response.data.message || 'Invalid email or password.');
+      } else if (err.request) {
+        setError('Cannot connect to the server. Please ensure the backend is running.');
+      } else {
+        setError('An unexpected error occurred. Please try again.');
+      }
     } finally {
       setIsSubmitting(false);
     }

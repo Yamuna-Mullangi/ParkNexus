@@ -206,7 +206,7 @@ const VisitorsPage = () => {
       ) : error ? (
         <div className="error-state">{error}</div>
       ) : visitors.length === 0 && !showForm ? (
-        <div className="empty-state" style={{ textAlign: 'center', padding: '3rem', background: 'var(--bg-card)', borderRadius: '8px' }}>
+        <div className="empty-state glass-panel" style={{ textAlign: "center", padding: "3rem" }}>
           <h3>No visitors found matching your current filters.</h3>
         </div>
       ) : !showForm ? (

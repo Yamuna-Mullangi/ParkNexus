@@ -115,7 +115,7 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              <Link to="/login" className="nav-link btn-login">Login</Link>
+              <Link to="/login" className="btn btn-outline">Login</Link>
               <Link to="/register" className="btn btn-primary">Get Started</Link>
             </>
           )}

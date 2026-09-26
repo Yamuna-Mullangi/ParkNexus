@@ -43,7 +43,7 @@ const ParkingDetails = ({ spot, onClose }) => {
   const isAssignedToMe = spot.assignedTo && user && spot.assignedTo._id === user._id;
 
   return (
-    <div className="parking-details-modal" style={{ background: 'var(--bg-card)', padding: '2rem', borderRadius: '8px', minWidth: '300px' }}>
+    <div className="parking-details-modal glass-panel" style={{ minWidth: "300px" }}>
       <div className="parking-details-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
         <h3 style={{ margin: 0, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
           Parking {spot.spotNumber}

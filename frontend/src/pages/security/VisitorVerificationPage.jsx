@@ -104,7 +104,7 @@ const VisitorVerificationPage = () => {
       )}
 
       {result && !checkInSuccess && (
-        <div style={{ background: 'var(--bg-card)', padding: '2rem', borderRadius: '8px', boxShadow: '0 4px 6px rgba(0,0,0,0.05)' }}>
+        <div style={{ padding: "2rem" }} className="glass-panel">
           {result.valid ? (
             <div style={{ textAlign: 'center' }}>
               <div style={{ display: 'inline-block', background: '#dcfce7', color: '#166534', padding: '1rem', borderRadius: '50%', marginBottom: '1rem' }}>

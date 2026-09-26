@@ -17,6 +17,10 @@ body {
   transition: background-color var(--transition-normal), color var(--transition-normal);
 }
 
+::placeholder {
+  color: var(--pn-text-muted);
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -53,38 +57,68 @@ ul {
 }
 
 /* Buttons */
-.btn {
+.btn, .btn-primary, .btn-outline {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: var(--spacing-sm) var(--spacing-lg);
-  border-radius: var(--radius-md);
-  font-weight: 500;
-  transition: all var(--transition-fast);
+  padding: 0 1.5rem;
+  height: 3.5rem;
+  font-weight: bold;
+  background-color: transparent !important;
+  color: #ddebf0 !important;
+  border: none !important;
+  outline: none;
+  z-index: 1;
+  transition: 0.1s;
+  text-decoration: none;
 }
 
-.btn-primary {
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: 4px double var(--color-primary);
+  box-sizing: border-box;
+  box-shadow: inset 0px 0px 15px rgba(16, 185, 129, 0.4);
+  clip-path: polygon(10% 0%, 90% 0%, 100% 30%, 100% 70%, 90% 100%, 10% 100%, 0% 70%, 0% 30%);
+  z-index: -1;
+  transition: all 0.2s;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  top: 35%;
+  left: 102%;
+  width: 15px;
+  height: 30%;
   background-color: var(--color-primary);
-  color: var(--color-white);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  clip-path: polygon(100% 49%, 0 0, 0 100%);
+  transition: 0.2s;
+  z-index: -1;
 }
 
-.btn-primary:hover {
-  background-color: var(--color-primary-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+.btn:hover::before {
+  animation: 0.2s ease-in-out both greenLight8;
+  border-color: #34D399;
 }
 
-.btn-outline {
-  border: 1px solid var(--color-border);
-  background-color: transparent;
-  color: var(--color-text);
+.btn:hover::after {
+  background-color: #34D399;
+  left: -20px;
+  animation: 0.6s ease-in-out both infinite alternate rightArrow8;
 }
 
-.btn-outline:hover {
-  background-color: var(--color-surface);
-  border-color: var(--color-primary);
-  color: var(--color-primary);
+@keyframes greenLight8 {
+  from {}
+  to { box-shadow: inset 0px 0px 32px rgba(52, 211, 153, 0.8); }
+}
+
+@keyframes rightArrow8 {
+  from { transform: translateX(0px); }
+  to { transform: translateX(-10px); }
 }
 
 .btn-large {
@@ -100,5 +134,22 @@ ul {
 
 .animate-fade-in {
   animation: fadeIn 0.6s ease-out forwards;
+}
+
+
+
+/* Glassmorphism Utilities */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  transition: box-shadow var(--transition-fast);
+}
+
+.glass-panel:hover {
+  box-shadow: var(--glass-shadow), var(--hover-glow);
 }
 

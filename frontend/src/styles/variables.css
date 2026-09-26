@@ -1,4 +1,12 @@
 :root {
+  /* ParkNexus Custom Palette (Slate & Emerald) */
+  --pn-obsidian: #0F172A;      /* Deep Slate */
+  --pn-charcoal: #1E293B;      /* Dark Slate */
+  --pn-pearl: #F8FAFC;         /* Soft White */
+  --pn-soft-grey: #F1F5F9;     /* Light Slate */
+  --pn-primary: #10B981;       /* Vibrant Emerald Green */
+  --pn-primary-hover: #059669; /* Darker Emerald */
+
   /* Typography */
   --font-family: 'Inter', 'Roboto', sans-serif;
   
@@ -18,75 +26,74 @@
   --radius-xl: 24px;
   --radius-full: 9999px;
   
-  /* Shadows */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  
   /* Common Colors */
-  --color-primary: #3b82f6; /* Blue */
-  --color-primary-hover: #2563eb;
-  --color-success: #10b981;
-  --color-warning: #f59e0b;
-  --color-danger: #ef4444;
-  --color-white: #ffffff;
-  --color-black: #000000;
+  --color-primary: var(--pn-primary);
+  --color-primary-hover: var(--pn-primary-hover);
+  --color-success: #4ADE80;
+  --color-warning: #FBBF24;
+  --color-danger: #F87171;
+  --color-white: #FFFFFF;
+  --color-black: var(--pn-obsidian);
   
   /* Transitions */
   --transition-fast: 0.15s ease;
   --transition-normal: 0.3s ease;
 }
 
-/* Light Theme (Default) */
+/* Light Theme */
 :root, [data-theme="light"] {
-  --color-background: #f8fafc;
-  --color-surface: #ffffff;
-  --color-text: #0f172a;
-  --color-text-muted: #64748b;
-  --color-border: #e2e8f0;
+  --color-background: var(--pn-pearl);
+  --color-surface: var(--pn-soft-grey);
+  --color-text: var(--pn-obsidian);
+  --color-text-muted: #5A5A5C;
+  --color-border: rgba(10, 10, 11, 0.1);
   
-  --shadow-nav: 0 1px 3px rgba(0,0,0,0.05);
+  --shadow-nav: 0 1px 3px rgba(10, 10, 11, 0.05);
+  --shadow-sm: 0 1px 2px rgba(10, 10, 11, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(10, 10, 11, 0.08), 0 2px 4px -1px rgba(10, 10, 11, 0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(10, 10, 11, 0.1), 0 4px 6px -2px rgba(10, 10, 11, 0.05);
 
-  /* Aliases for inline styles used throughout the app */
-  --bg-secondary: #f1f5f9;
-  --bg-card: #ffffff;
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-light: #94a3b8;
-  --border-color: #e2e8f0;
+  /* Aliases */
+  --bg-secondary: var(--pn-soft-grey);
+  --bg-card: var(--pn-pearl);
+  --text-primary: var(--pn-obsidian);
+  --text-secondary: #5A5A5C;
+  --text-light: rgba(10, 10, 11, 0.5);
+  --border-color: rgba(10, 10, 11, 0.1);
 
-  /* Glassmorphism */
-  --glass-bg: rgba(255, 255, 255, 0.8);
-  --glass-border: rgba(226, 232, 240, 0.6);
-  --glass-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-  --glass-blur: blur(12px);
-  --hover-glow: 0 0 20px rgba(59, 130, 246, 0.15);
+  /* Premium Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --glass-border: rgba(16, 185, 129, 0.3);
+  --glass-shadow: 0 8px 32px rgba(15, 23, 42, 0.08);
+  --glass-blur: blur(24px);
+  --hover-glow: 0 0 24px rgba(16, 185, 129, 0.25);
 }
 
-/* Dark Theme */
+/* Dark Theme (Default for ParkNexus) */
 [data-theme="dark"] {
-  --color-background: #0f172a;
-  --color-surface: #1e293b;
-  --color-text: #f8fafc;
-  --color-text-muted: #94a3b8;
-  --color-border: #334155;
+  --color-background: var(--pn-obsidian);
+  --color-surface: var(--pn-charcoal);
+  --color-text: var(--pn-pearl);
+  --color-text-muted: #A0A0A5;
+  --color-border: rgba(16, 185, 129, 0.15);
   
-  --shadow-nav: 0 1px 3px rgba(0,0,0,0.3);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  --shadow-nav: 0 1px 3px rgba(0, 0, 0, 0.8);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.6), 0 2px 4px -1px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.7), 0 4px 6px -2px rgba(0, 0, 0, 0.5);
 
-  /* Aliases for inline styles used throughout the app */
-  --bg-secondary: #0f172a;
-  --bg-card: #1e293b;
-  --text-primary: #f8fafc;
-  --text-secondary: #cbd5e1;
-  --text-light: #64748b;
-  --border-color: #334155;
+  /* Aliases */
+  --bg-secondary: var(--pn-charcoal);
+  --bg-card: var(--pn-charcoal);
+  --text-primary: var(--pn-pearl);
+  --text-secondary: #A0A0A5;
+  --text-light: rgba(248, 250, 252, 0.5);
+  --border-color: rgba(16, 185, 129, 0.15);
 
-  /* Glassmorphism */
-  --glass-bg: rgba(30, 41, 59, 0.65);
-  --glass-border: rgba(255, 255, 255, 0.08);
-  --glass-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  --glass-blur: blur(12px);
-  --hover-glow: 0 0 20px rgba(59, 130, 246, 0.25);
+  /* Premium Glassmorphism */
+  --glass-bg: rgba(30, 41, 59, 0.7);
+  --glass-border: rgba(16, 185, 129, 0.25);
+  --glass-shadow: 0 8px 32px rgba(15, 23, 42, 0.8);
+  --glass-blur: blur(24px);
+  --hover-glow: 0 0 25px rgba(16, 185, 129, 0.2);
 }
-

@@ -114,7 +114,7 @@ const VehiclesPage = () => {
       ) : error ? (
         <div className="error-state">{error}</div>
       ) : vehicles.length === 0 && !showForm ? (
-        <div className="empty-state" style={{ textAlign: 'center', padding: '3rem', background: 'var(--bg-card)', borderRadius: '8px' }}>
+        <div className="empty-state glass-panel" style={{ textAlign: "center", padding: "3rem" }}>
           <h3>No vehicles added yet</h3>
           <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem' }}>Add your vehicle to make parking reservations easier to manage.</p>
           <button onClick={() => setShowForm(true)} className="btn btn-primary" style={{ padding: '0.75rem 1.5rem', background: '#3b82f6', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold' }}>

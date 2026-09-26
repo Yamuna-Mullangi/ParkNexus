@@ -117,7 +117,7 @@ const ResidentDashboardPage = () => {
         
         {/* Parking Spotlight */}
         {preferences?.dashboardPreferences?.showParkingOverview !== false && (
-          <div style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: '8px', border: '1px solid var(--border-color)', boxShadow: '0 2px 4px rgba(0,0,0,0.05)' }}>
+          <div className="glass-panel">
             <h3 style={{ margin: '0 0 1rem 0', color: 'var(--text-secondary)', fontSize: '1rem' }}>My Parking</h3>
             {loading ? (
               <div className="loading-state" style={{ minHeight: '80px', padding: 0 }}>Loading...</div>
@@ -144,7 +144,7 @@ const ResidentDashboardPage = () => {
 
         {/* Global Capacity Spotlight */}
         {dashboardData.capacity && (
-          <div style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: '8px', border: '1px solid var(--border-color)', boxShadow: '0 2px 4px rgba(0,0,0,0.05)' }}>
+          <div className="glass-panel">
             <h3 style={{ margin: '0 0 1rem 0', color: 'var(--text-secondary)', fontSize: '1rem' }}>Parking Availability</h3>
             {loading ? (
               <div className="loading-state" style={{ minHeight: '80px', padding: 0 }}>Loading...</div>
@@ -163,7 +163,7 @@ const ResidentDashboardPage = () => {
         )}
 
         {/* Primary Vehicle Spotlight */}
-        <div style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: '8px', border: '1px solid var(--border-color)', boxShadow: '0 2px 4px rgba(0,0,0,0.05)' }}>
+        <div className="glass-panel">
           <h3 style={{ margin: '0 0 1rem 0', color: 'var(--text-secondary)', fontSize: '1rem' }}>Primary Vehicle</h3>
           {loading ? (
             <div className="loading-state" style={{ minHeight: '80px', padding: 0 }}>Loading...</div>
@@ -193,7 +193,7 @@ const ResidentDashboardPage = () => {
         
         {/* Reservations Preview */}
         {preferences?.dashboardPreferences?.showUpcomingReservations !== false && (
-          <div style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+          <div className="glass-panel">
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
               <h3 style={{ margin: 0, color: 'var(--text-primary)' }}>Upcoming Reservations</h3>
               <Link to="/reservations" style={{ color: '#3b82f6', textDecoration: 'none', fontSize: '0.9rem' }}>View All</Link>
@@ -229,7 +229,7 @@ const ResidentDashboardPage = () => {
 
         {/* Visitors Preview */}
         {preferences?.dashboardPreferences?.showVisitorSection !== false && (
-          <div style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+          <div className="glass-panel">
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
               <h3 style={{ margin: 0, color: 'var(--text-primary)' }}>Expected Visitors</h3>
               <Link to="/visitors" style={{ color: '#3b82f6', textDecoration: 'none', fontSize: '0.9rem' }}>Manage Visitors</Link>
@@ -265,7 +265,7 @@ const ResidentDashboardPage = () => {
 
         {/* Notifications Preview */}
         {preferences?.dashboardPreferences?.showNotificationPreview !== false && (
-          <div style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+          <div className="glass-panel">
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
               <h3 style={{ margin: 0, color: 'var(--text-primary)' }}>Recent Notifications</h3>
               <Link to="/notifications" style={{ color: '#3b82f6', textDecoration: 'none', fontSize: '0.9rem' }}>View All</Link>
@@ -293,7 +293,7 @@ const ResidentDashboardPage = () => {
         )}
 
         {/* Recent Activity Preview */}
-        <div style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+        <div className="glass-panel">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
             <h3 style={{ margin: 0, color: 'var(--text-primary)' }}>Recent Activity</h3>
             <Link to="/resident/history" style={{ color: '#3b82f6', textDecoration: 'none', fontSize: '0.9rem' }}>View History</Link>
@@ -325,7 +325,7 @@ const ResidentDashboardPage = () => {
         </div>
 
         {/* Quick Access (Favorites / Recents) Preview */}
-        <div style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: '8px', border: '1px solid var(--border-color)', gridColumn: '1 / -1' }}>
+        <div className="glass-panel" style={{ gridColumn: '1 / -1' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
             <h3 style={{ margin: 0, color: 'var(--text-primary)' }}>Saved & Recent Parking</h3>
             <Link to="/resident/favorites" style={{ color: '#3b82f6', textDecoration: 'none', fontSize: '0.9rem' }}>View All</Link>
@@ -366,3 +366,4 @@ const ResidentDashboardPage = () => {
 };
 
 export default ResidentDashboardPage;
+

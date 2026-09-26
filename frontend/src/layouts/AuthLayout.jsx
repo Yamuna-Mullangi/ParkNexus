@@ -2,7 +2,7 @@ import React from 'react';
 import { Outlet, Navigate, Link } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
 import { Car } from 'lucide-react';
-import './Layouts.css'; // Will create this for simple Auth header
+import './Layouts.css';
 
 const AuthLayout = () => {
   const { isAuthenticated, user } = useAuth();

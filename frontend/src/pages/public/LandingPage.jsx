@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom';
 import { 
   Car, Shield, Clock, Users, BarChart, Settings, 
   MapPin, CheckCircle, ArrowRight, Zap, Map,
-  Check, Smartphone, Video
+  Check, Smartphone, Video, QrCode
 } from 'lucide-react';
 import '../../components/landing/Landing.css'; // Assume we will create/update this
 
 // Reusing Navbar from existing components or a custom one if missing
 import LandingNavbar from '../../components/navigation/LandingNavbar';
 import Footer from '../../components/landing/Footer';
+import ParkNexus3DScene from '../../components/landing/3d/ParkNexus3DScene';
 
 
 const Hero = () => (
@@ -101,24 +102,32 @@ const HowItWorks = () => (
     </div>
     <div className="workflow-steps">
       <div className="step">
-        <div className="step-number">1</div>
-        <h3>Find a Spot</h3>
-        <p>View live availability and smart recommendations.</p>
+        <div className="step-number"><Map size={32} /></div>
+        <div className="step-content">
+          <h3>Find a Spot</h3>
+          <p>View live availability and smart recommendations.</p>
+        </div>
       </div>
       <div className="step">
-        <div className="step-number">2</div>
-        <h3>Reserve</h3>
-        <p>Book instantly with conflict-free scheduling.</p>
+        <div className="step-number"><Clock size={32} /></div>
+        <div className="step-content">
+          <h3>Reserve</h3>
+          <p>Book instantly with conflict-free scheduling.</p>
+        </div>
       </div>
       <div className="step">
-        <div className="step-number">3</div>
-        <h3>Access</h3>
-        <p>Get a digital parking pass or QR code.</p>
+        <div className="step-number"><Smartphone size={32} /></div>
+        <div className="step-content">
+          <h3>Access</h3>
+          <p>Get a digital parking pass or QR code.</p>
+        </div>
       </div>
       <div className="step">
-        <div className="step-number">4</div>
-        <h3>Park</h3>
-        <p>Arrive and park securely with peace of mind.</p>
+        <div className="step-number"><Car size={32} /></div>
+        <div className="step-content">
+          <h3>Park</h3>
+          <p>Arrive and park securely with peace of mind.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -137,7 +146,13 @@ const ExperienceSections = () => (
           <li><Check size={20}/> Manage registered vehicles</li>
         </ul>
       </div>
-      <div className="experience-visual resident-visual"></div>
+      <div className="experience-visual resident-visual">
+        <img 
+          src="/images/ui_matched_parking.jpg" 
+          alt="Intelligent Smart Parking App" 
+          style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '12px' }}
+        />
+      </div>
     </div>
 
     <div className="experience-row reverse">
@@ -150,7 +165,20 @@ const ExperienceSections = () => (
           <li><Check size={20}/> Monitor active visitors</li>
         </ul>
       </div>
-      <div className="experience-visual security-visual"></div>
+      <div className="experience-visual security-visual">
+         <div className="mockup-dashboard">
+           <div className="mockup-nav"><Shield size={20} /> Security Console</div>
+           <div className="mockup-scan-window" style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+             <QrCode size={120} color="var(--color-primary)" opacity={0.3} style={{ position: 'absolute' }} />
+             <div className="scan-line"></div>
+             <p style={{ zIndex: 1, marginTop: '140px' }}>Awaiting Scan...</p>
+           </div>
+           <div className="mockup-log">
+             <div className="log-item success">Approved: Toyota Camry (Visitor)</div>
+             <div className="log-item success">Approved: Resident (Spot 12)</div>
+           </div>
+         </div>
+      </div>
     </div>
 
     <div className="experience-row">
@@ -163,7 +191,21 @@ const ExperienceSections = () => (
           <li><Check size={20}/> Resolve parking issues</li>
         </ul>
       </div>
-      <div className="experience-visual admin-visual"></div>
+      <div className="experience-visual admin-visual">
+         <div className="mockup-dashboard">
+           <div className="mockup-nav"><BarChart size={20} /> Admin Analytics</div>
+           <div className="mockup-stats">
+             <div className="stat-box"><h4 style={{color: 'var(--color-text)', marginBottom: '0.25rem', fontSize: '1.5rem'}}>95%</h4><p style={{color: 'var(--color-text-muted)', fontSize: '0.875rem', margin: 0}}>Occupancy</p></div>
+             <div className="stat-box"><h4 style={{color: 'var(--color-text)', marginBottom: '0.25rem', fontSize: '1.5rem'}}>12</h4><p style={{color: 'var(--color-text-muted)', fontSize: '0.875rem', margin: 0}}>Active Guests</p></div>
+           </div>
+           <div className="mockup-chart">
+              <div className="bar" style={{height: '60%'}}></div>
+              <div className="bar" style={{height: '80%'}}></div>
+              <div className="bar" style={{height: '100%', background: 'var(--color-primary)'}}></div>
+              <div className="bar" style={{height: '40%'}}></div>
+           </div>
+         </div>
+      </div>
     </div>
   </section>
 );
@@ -200,17 +242,19 @@ const CTA = () => (
 
 const LandingPage = () => {
   return (
-    <div className="landing-page-v2">
-      <main>
-        <Hero />
-        <TrustStrip />
-        <CoreFeatures />
-        <HowItWorks />
-        <ExperienceSections />
-        <SmartRecommendations />
-        <CTA />
-      </main>
-    </div>
+    <>
+      <div className="landing-page-v2" style={{ position: 'relative', zIndex: 1 }}>
+        <main>
+          <Hero />
+          <TrustStrip />
+          <CoreFeatures />
+          <HowItWorks />
+          <ExperienceSections />
+          <SmartRecommendations />
+          <CTA />
+        </main>
+      </div>
+    </>
   );
 };
 

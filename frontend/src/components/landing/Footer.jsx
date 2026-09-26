@@ -36,6 +36,9 @@ const Footer = () => {
         
         <div className="footer-bottom">
           <p className="text-muted">&copy; 2026 ParkNexus. All rights reserved.</p>
+          <p className="text-muted" style={{ fontSize: '0.75rem', marginTop: '0.5rem', opacity: 0.7 }}>
+            This work is based on <a href="https://sketchfab.com/3d-models/mclaren-p1-gtr-2015-187bdc110d16417e8a02e71af4ebd8d8" target="_blank" rel="noreferrer">"McLaren P1 GTR 2015"</a> by <a href="https://sketchfab.com/h.e.l.l.o_" target="_blank" rel="noreferrer">LC Design ⓥⓘⓟ</a> licensed under <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer">CC-BY-4.0</a>.
+          </p>
         </div>
       </div>
     </footer>

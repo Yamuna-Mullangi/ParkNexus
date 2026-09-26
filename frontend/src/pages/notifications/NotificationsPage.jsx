@@ -165,7 +165,7 @@ const NotificationsPage = () => {
       {loading ? (
         <div className="loading-state">Loading notifications...</div>
       ) : notifications.length === 0 ? (
-        <div className="empty-state" style={{ textAlign: 'center', padding: '3rem', background: 'var(--bg-card)', borderRadius: '8px' }}>
+        <div className="empty-state glass-panel" style={{ textAlign: "center", padding: "3rem" }}>
           <h3>No notifications match your filters</h3>
           <p style={{ color: 'var(--text-secondary)' }}>You're all caught up!</p>
         </div>

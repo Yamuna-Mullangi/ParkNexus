@@ -100,7 +100,7 @@ const AdminDashboardPage = () => {
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem', marginBottom: '2rem' }}>
-        <div style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: '8px', border: '1px solid var(--border-color)', boxShadow: '0 2px 4px rgba(0,0,0,0.05)' }}>
+        <div className="glass-panel">
           <h3 style={{ margin: '0 0 0.5rem 0', fontSize: '1rem', color: 'var(--text-secondary)' }}>Parking Occupancy</h3>
           <p style={{ margin: 0, fontSize: '2rem', fontWeight: 'bold', color: capacity?.occupancyRate > 85 ? '#ef4444' : '#3b82f6' }}>
             {capacity?.occupancyRate || 0}%
@@ -109,15 +109,15 @@ const AdminDashboardPage = () => {
             {capacity?.occupied + capacity?.assigned} / {capacity?.usableCapacity} Usable Spaces
           </p>
         </div>
-        <div style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: '8px', border: '1px solid var(--border-color)', boxShadow: '0 2px 4px rgba(0,0,0,0.05)' }}>
+        <div className="glass-panel">
           <h3 style={{ margin: '0 0 0.5rem 0', fontSize: '1rem', color: 'var(--text-secondary)' }}>Currently Inside</h3>
           <p style={{ margin: 0, fontSize: '2rem', fontWeight: 'bold', color: '#10b981' }}>{visitors?.currentlyInside || 0}</p>
         </div>
-        <div style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: '8px', border: '1px solid var(--border-color)', boxShadow: '0 2px 4px rgba(0,0,0,0.05)' }}>
+        <div className="glass-panel">
           <h3 style={{ margin: '0 0 0.5rem 0', fontSize: '1rem', color: 'var(--text-secondary)' }}>Reservations Today</h3>
           <p style={{ margin: 0, fontSize: '2rem', fontWeight: 'bold', color: '#8b5cf6' }}>{reservations?.today || 0}</p>
         </div>
-        <div style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: '8px', border: '1px solid var(--border-color)', boxShadow: '0 2px 4px rgba(0,0,0,0.05)' }}>
+        <div className="glass-panel">
           <h3 style={{ margin: '0 0 0.5rem 0', fontSize: '1rem', color: 'var(--text-secondary)' }}>Total Users</h3>
           <p style={{ margin: 0, fontSize: '2rem', fontWeight: 'bold', color: 'var(--text-primary)' }}>{users?.total || 0}</p>
         </div>
@@ -160,7 +160,7 @@ const AdminDashboardPage = () => {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '2rem', marginBottom: '2rem' }}>
         
         {/* Reservation Trends */}
-        <div style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+        <div className="glass-panel">
           <h3 style={{ marginTop: 0, marginBottom: '1rem', color: 'var(--text-primary)' }}>Reservation Trends</h3>
           {!trends || trends.length === 0 ? (
             <p>No activity recorded for this period.</p>
@@ -180,7 +180,7 @@ const AdminDashboardPage = () => {
         </div>
 
         {/* Status Distribution Chart */}
-        <div style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+        <div className="glass-panel">
           <h3 style={{ marginTop: 0, marginBottom: '1rem', color: 'var(--text-primary)' }}>Parking Status Distribution</h3>
           {parkingStatusData.length === 0 ? (
             <p>Not enough data yet.</p>
@@ -234,7 +234,7 @@ const AdminDashboardPage = () => {
         {/* Breakdown Stats */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
           
-          <div style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+          <div className="glass-panel">
             <h3 style={{ marginTop: 0, marginBottom: '1rem', color: 'var(--text-primary)' }}>User Demographics</h3>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
               <div><span style={{ color: 'var(--text-secondary)' }}>Residents:</span> <strong>{users?.residents || 0}</strong></div>
@@ -244,7 +244,7 @@ const AdminDashboardPage = () => {
             </div>
           </div>
 
-          <div style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+          <div className="glass-panel">
             <h3 style={{ marginTop: 0, marginBottom: '1rem', color: 'var(--text-primary)' }}>Gate Activity (Today)</h3>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
               <div><span style={{ color: 'var(--text-secondary)' }}>Entries:</span> <strong>{gate?.entriesToday || 0}</strong></div>
@@ -256,7 +256,7 @@ const AdminDashboardPage = () => {
         </div>
 
         {/* Recent Activity Logs */}
-        <div style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+        <div className="glass-panel">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
             <h2 style={{ margin: 0, color: 'var(--text-primary)', fontSize: '1.25rem' }}>Recent System Activity</h2>
             <Link to="/admin/logs" style={{ color: '#3b82f6', textDecoration: 'none', fontSize: '0.9rem' }}>View All</Link>

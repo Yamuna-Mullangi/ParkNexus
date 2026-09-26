@@ -52,7 +52,7 @@ const ReportsPage = () => {
         <p>Export operational data as CSV files for external analysis.</p>
       </div>
 
-      <div style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: '8px', border: '1px solid var(--border-color)', marginBottom: '2rem' }}>
+      <div style={{ marginBottom: "2rem" }} className="glass-panel">
         <h3 style={{ marginTop: 0, marginBottom: '1rem', color: 'var(--text-primary)' }}>1. Select Date Range</h3>
         <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center' }}>
           <select 
@@ -91,7 +91,7 @@ const ReportsPage = () => {
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1.5rem' }}>
         {reportTypes.map((report) => (
-          <div key={report.type} style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: '8px', border: '1px solid var(--border-color)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+          <div key={report.type} style={{ display: "flex", flexDirection: "column", justifyContent: "space-between" }} className="glass-panel">
             <div>
               <h3 style={{ marginTop: 0, marginBottom: '0.5rem', color: 'var(--text-primary)' }}>{report.title}</h3>
               <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '1.5rem' }}>
@@ -114,3 +114,4 @@ const ReportsPage = () => {
 };
 
 export default ReportsPage;
+

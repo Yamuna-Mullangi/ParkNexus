@@ -83,7 +83,7 @@ const FavoriteParkingPage = () => {
       <div style={{ marginBottom: '3rem' }}>
         <h2>Favorite Parking Spots</h2>
         {favorites.length === 0 ? (
-          <div className="empty-state" style={{ background: 'var(--bg-card)', padding: '2rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+          <div className="empty-state glass-panel" style={{ padding: "2rem" }}>
             No favorite parking spots yet. <br/><br/>
             Save parking spots you use often for quick access.
           </div>
@@ -134,7 +134,7 @@ const FavoriteParkingPage = () => {
       <div>
         <h2>Recently Viewed</h2>
         {recentViews.length === 0 ? (
-          <div className="empty-state" style={{ background: 'var(--bg-card)', padding: '2rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+          <div className="empty-state glass-panel" style={{ padding: "2rem" }}>
             No recently viewed parking yet.
           </div>
         ) : (
